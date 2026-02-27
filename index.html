@@ -28,7 +28,6 @@
             scroll-behavior: smooth;
         }
         
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -69,7 +68,6 @@
             opacity: 0.8;
         }
         
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -120,7 +118,6 @@
             transform: translateY(-5px);
         }
         
-        /* Section Styles */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -148,7 +145,6 @@
             border-radius: 2px;
         }
         
-        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -170,7 +166,6 @@
             font-weight: 600;
         }
         
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -210,8 +205,27 @@
             color: var(--text);
             border: 1px solid #e2e8f0;
         }
+
+        /* Badge "Nuevo" */
+        .badge-new {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.05em;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+        }
         
-        /* Projects Section */
         .project-card {
             background: white;
             border-radius: 15px;
@@ -229,6 +243,11 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 2rem;
+        }
+
+        /* Header especial para el proyecto nuevo */
+        .project-header.header-taskmanager {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
         }
         
         .project-header h3 {
@@ -293,6 +312,15 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
+
+        /* Grid de 2 columnas para el task manager */
+        .screenshots-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
         
         .screenshot-item {
             position: relative;
@@ -328,10 +356,13 @@
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
         
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 0.8rem 2rem;
             border-radius: 25px;
             text-decoration: none;
@@ -348,6 +379,16 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
+
+        .btn-purple {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: white;
+        }
+
+        .btn-purple:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+        }
         
         .btn-secondary {
             background: white;
@@ -359,8 +400,46 @@
             background: var(--primary);
             color: white;
         }
+
+        .btn-outline-purple {
+            background: white;
+            color: #7c3aed;
+            border: 2px solid #7c3aed;
+        }
+
+        .btn-outline-purple:hover {
+            background: #7c3aed;
+            color: white;
+        }
+
+        /* Estadísticas del proyecto */
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            background: #f5f3ff;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #ede9fe;
+        }
+
+        .stat-item .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #7c3aed;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.2rem;
+        }
         
-        /* Contact Section */
         .contact-content {
             text-align: center;
             max-width: 600px;
@@ -397,7 +476,6 @@
             color: var(--primary);
         }
         
-        /* Footer */
         footer {
             background: var(--dark);
             color: white;
@@ -406,34 +484,17 @@
             margin-top: 4rem;
         }
         
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .screenshots-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-links {
-                flex-direction: column;
-            }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .screenshots-grid { grid-template-columns: 1fr; }
+            .screenshots-grid-2 { grid-template-columns: 1fr; }
+            .project-links { flex-direction: column; }
+            .project-stats { grid-template-columns: repeat(2, 1fr); }
         }
         
-        /* Lightbox for images */
         .lightbox {
             display: none;
             position: fixed;
@@ -468,7 +529,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <header>
         <nav>
             <div class="logo">Gonzalo Pedraza</div>
@@ -482,48 +542,27 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <!-- Acá subí tu foto: reemplazá "tu-foto.jpg" con el nombre de tu archivo -->
             <img src="screenshots/perfil.jpeg" alt="Gonzalo Pedraza" class="profile-img">
             <h1>Gonzalo Iván Pedraza</h1>
             <p class="subtitle">Full Stack Developer | Traductor de Inglés</p>
             <p>Desarrollador apasionado por crear soluciones que resuelven problemas reales. Especializado en arquitectura modular y desarrollo end-to-end.</p>
-            
             <div class="social-links">
-                <a href="https://github.com/Gonza28fq" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/gonzalo-pedraza-b8b568298" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:gonza280797@hotmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
+                <a href="https://github.com/Gonza28fq" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gonzalo-pedraza-b8b568298" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:gonza280797@hotmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="sobre-mi">
         <h2 class="section-title">Sobre Mí</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>
-                    Soy <span class="highlight">Desarrollador Full Stack</span> recién graduado del Instituto 9 de Julio, 
-                    con sólida formación técnica y <span class="highlight">dominio avanzado de inglés técnico</span> 
-                    (Traductor certificado).
-                </p>
-                <p>
-                    Mi experiencia incluye el desarrollo de un <span class="highlight">sistema integral de gestión comercial</span> 
-                    con arquitectura modular, sistema de roles/permisos y seguridad robusta, logrando una 
-                    <span class="highlight">reducción del 85% en errores administrativos</span>.
-                </p>
-                <p>
-                    Actualmente estoy migrando el sistema a tecnologías modernas (React/Node.js/TypeScript) 
-                    y buscando mi primera oportunidad profesional para seguir creciendo como desarrollador.
-                </p>
+                <p>Soy <span class="highlight">Desarrollador Full Stack</span> recién graduado del Instituto 9 de Julio, con sólida formación técnica y <span class="highlight">dominio avanzado de inglés técnico</span> (Traductor certificado).</p>
+                <p>Mi experiencia incluye el desarrollo de un <span class="highlight">sistema integral de gestión comercial</span> con arquitectura modular, sistema de roles/permisos y seguridad robusta, logrando una <span class="highlight">reducción del 85% en errores administrativos</span>.</p>
+                <p>Actualmente estoy migrando el sistema a tecnologías modernas (React/Node.js/TypeScript) y buscando mi primera oportunidad profesional para seguir creciendo como desarrollador.</p>
             </div>
             <div>
                 <img src="about-image.jpg" alt="Desarrollo" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
@@ -531,7 +570,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title">Stack Técnico</h2>
         <div class="skills-grid">
@@ -544,9 +582,9 @@
                     <span class="skill-tag">HTML5</span>
                     <span class="skill-tag">CSS3</span>
                     <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">Tailwind CSS</span>
                 </div>
             </div>
-            
             <div class="skill-category">
                 <h3><i class="fas fa-server"></i> Backend</h3>
                 <div class="skill-tags">
@@ -557,17 +595,16 @@
                     <span class="skill-tag">Python</span>
                 </div>
             </div>
-            
             <div class="skill-category">
                 <h3><i class="fas fa-database"></i> Bases de Datos</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">MySQL</span>
                     <span class="skill-tag">MariaDB</span>
                     <span class="skill-tag">SQLite</span>
+                    <span class="skill-tag">MongoDB</span>
                     <span class="skill-tag">Stored Procedures</span>
                 </div>
             </div>
-            
             <div class="skill-category">
                 <h3><i class="fas fa-tools"></i> Herramientas</h3>
                 <div class="skill-tags">
@@ -575,19 +612,18 @@
                     <span class="skill-tag">VS Code</span>
                     <span class="skill-tag">Composer</span>
                     <span class="skill-tag">npm</span>
+                    <span class="skill-tag">Vite</span>
                 </div>
             </div>
-            
             <div class="skill-category">
                 <h3><i class="fas fa-shield-alt"></i> Seguridad</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Hashing</span>
                     <span class="skill-tag">Encryption</span>
-                    <span class="skill-tag">Authentication</span>
+                    <span class="skill-tag">JWT Auth</span>
                     <span class="skill-tag">SQL Injection Prevention</span>
                 </div>
             </div>
-            
             <div class="skill-category">
                 <h3><i class="fas fa-language"></i> Idiomas</h3>
                 <div class="skill-tags">
@@ -599,11 +635,88 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="proyectos">
         <h2 class="section-title">Proyectos Destacados</h2>
-        
-        <!-- Proyecto Principal -->
+
+        <!-- ===================== PROYECTO: GESTOR DE TAREAS ===================== -->
+        <div class="project-card">
+            <div class="project-header header-taskmanager">
+                <h3>Gestor de Tareas <span class="badge-new">NUEVO</span></h3>
+                <p>Proyecto Personal | Febrero 2026</p>
+                <div class="project-meta">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">TypeScript</span>
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">MongoDB</span>
+                    <span class="project-tag">Tailwind CSS</span>
+                    <span class="project-tag">JWT</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <p class="project-description">
+                    Aplicación web full stack para la gestión de tareas personales. Desarrollada con un stack moderno (React + TypeScript en el frontend, Node.js + MongoDB en el backend), incluye autenticación completa, subtareas, notificaciones por fecha límite, drag & drop, búsqueda en tiempo real y modo oscuro.
+                </p>
+
+                <!-- Stats rápidas -->
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Apps (Front + Back)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Endpoints REST</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Componentes React</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">TypeScript</div>
+                    </div>
+                </div>
+
+                <div class="project-features">
+                    <h4>Características Principales:</h4>
+                    <ul>
+                        <li>Autenticación completa con JWT — registro, login y logout seguros</li>
+                        <li>CRUD completo de tareas con validaciones en frontend y backend</li>
+                        <li>Subtareas anidadas con barra de progreso visual</li>
+                        <li>Notificaciones por fecha límite — alertas para vencidas, hoy y mañana</li>
+                        <li>Búsqueda en tiempo real por título, descripción y categoría</li>
+                        <li>Filtros por estado (pendiente/completada) y prioridad (baja/media/alta)</li>
+                        <li>Drag & drop para reordenar tareas</li>
+                        <li>Dark mode con persistencia en localStorage</li>
+                        <li>Estadísticas visuales en tiempo real</li>
+                    </ul>
+                </div>
+
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Capturas del Sistema:</h4>
+                <div class="screenshots-grid-2">
+                    <div class="screenshot-item" onclick="openLightbox('screenshots/taskmanager-light.png')">
+                        <img src="screenshots/taskmanager-light.png" alt="Dashboard Modo Claro">
+                        <div class="screenshot-caption">Dashboard — Modo Claro</div>
+                    </div>
+                    <div class="screenshot-item" onclick="openLightbox('screenshots/taskmanager-dark.png')">
+                        <img src="screenshots/taskmanager-dark.png" alt="Dashboard Modo Oscuro">
+                        <div class="screenshot-caption">Dashboard — Modo Oscuro</div>
+                    </div>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/Gonza28fq/gestor-de-tareas" target="_blank" class="btn btn-purple">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                    <a href="Documentacion_Tecnica_GestorTareas.pdf" download class="btn btn-outline-purple">
+                        <i class="fas fa-file-word"></i> Descargar Documentación
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== PROYECTO: SISTEMA GESTIÓN COMERCIAL ===================== -->
         <div class="project-card">
             <div class="project-header">
                 <h3>Sistema de Gestión Comercial 2.0</h3>
@@ -638,11 +751,7 @@
                 </div>
                 
                 <h4>Capturas del Sistema:</h4>
-                
-                <!-- MÓDULO: LOGIN -->
                 <div class="screenshots-grid">
-                    <!-- Acá subís tus screenshots del login -->
-                    <!-- Reemplazá "login1.jpg", "login2.jpg" con los nombres de tus archivos -->
                     <div class="screenshot-item" onclick="openLightbox('screenshots/login1.png')">
                         <img src="screenshots/login1.png" alt="Pantalla de Login">
                         <div class="screenshot-caption">Pantalla de Login</div>
@@ -665,7 +774,7 @@
                     </div>
                     <div class="screenshot-item" onclick="openLightbox('screenshots/dashboard3.png')">
                         <img src="screenshots/dashboard3.png" alt="Dashboard - Reportes">
-                        <div class="screenshot-caption">Seccion Mi Perfil</div>
+                        <div class="screenshot-caption">Sección Mi Perfil</div>
                     </div>
                 </div>
                 
@@ -787,83 +896,38 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Proyecto Actual (Migración) -->
-        <div class="project-card">
-            <div class="project-header">
-                <h3>Migración a Stack Moderno</h3>
-                <p>En Desarrollo | Febrero 2025 - Presente</p>
-                <div class="project-meta">
-                    <span class="project-tag">React</span>
-                    <span class="project-tag">Node.js</span>
-                    <span class="project-tag">TypeScript</span>
-                    <span class="project-tag">Express</span>
-                </div>
-            </div>
-            
-            <div class="project-content">
-                <p class="project-description">
-                    Refactorización completa del Sistema de Gestión Comercial utilizando tecnologías modernas 
-                    para mejorar performance, escalabilidad y seguridad.
-                </p>
-                
-                <div class="project-features">
-                    <h4>Objetivos del Proyecto:</h4>
-                    <ul>
-                        <li>Frontend: React con TypeScript para type safety</li>
-                        <li>Backend: Node.js con Express para arquitectura escalable</li>
-                        <li>API REST moderna y bien documentada</li>
-                        <li>Implementación de cifrado robusto</li>
-                        <li>Mejores prácticas de seguridad y testing</li>
-                    </ul>
-                </div>
-                
-                <div class="project-links">
-                    <a href="https://github.com/Gonza28fq" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-github"></i> Próximamente en GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contacto">
         <h2 class="section-title">Contacto</h2>
         <div class="contact-content">
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                ¿Estás buscando un desarrollador comprometido con el aprendizaje continuo y la excelencia técnica? 
+                ¿Estás buscando un desarrollador comprometido con el aprendizaje continuo y la excelencia técnica?
                 <br><br>
                 <strong>¡Hablemos!</strong>
             </p>
-            
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:gonza280797@hotmail.com">gonza280797@hotmail.com</a>
                 </div>
-                
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
                     <a href="tel:+5493815958981">+54 381 5958981</a>
                 </div>
-                
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>San Miguel de Tucumán, Argentina</span>
                 </div>
-                
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
                     <a href="https://www.linkedin.com/in/gonzalo-pedraza-b8b568298" target="_blank">LinkedIn</a>
                 </div>
-                
                 <div class="contact-item">
                     <i class="fab fa-github"></i>
                     <a href="https://github.com/Gonza28fq" target="_blank">GitHub</a>
                 </div>
             </div>
-            
             <div style="margin-top: 3rem;">
                 <a href="Gonzalo_Pedraza_Developer.pdf" download class="btn btn-primary" style="font-size: 1.1rem;">
                     <i class="fas fa-download"></i> Descargar CV
@@ -872,34 +936,25 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Gonzalo Iván Pedraza. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem; opacity: 0.8;">Desarrollador Full Stack | Tucumán, Argentina</p>
     </footer>
 
-    <!-- Lightbox para ver imágenes grandes -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
         <img src="" id="lightbox-img" alt="Screenshot">
     </div>
 
     <script>
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Lightbox functions
         function openLightbox(imageSrc) {
             document.getElementById('lightbox').classList.add('active');
             document.getElementById('lightbox-img').src = imageSrc;
@@ -911,11 +966,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close lightbox with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
+            if (e.key === 'Escape') closeLightbox();
         });
     </script>
 </body>
