@@ -562,7 +562,7 @@
             <div class="about-text">
                 <p>Soy <span class="highlight">Desarrollador Full Stack</span> recién graduado del Instituto 9 de Julio, con sólida formación técnica y <span class="highlight">dominio avanzado de inglés técnico</span> (Traductor certificado).</p>
                 <p>Mi experiencia incluye el desarrollo de un <span class="highlight">sistema integral de gestión comercial</span> con arquitectura modular, sistema de roles/permisos y seguridad robusta, logrando una <span class="highlight">reducción del 85% en errores administrativos</span>.</p>
-                <p>Actualmente estoy migrando el sistema a tecnologías modernas (React/Node.js/TypeScript) y buscando mi primera oportunidad profesional para seguir creciendo como desarrollador.</p>
+                <p>Actualmente desarrollo <span class="highlight">TurnoLex</span>, un SaaS multi-tenant de gestión de turnos para estudios jurídicos, deployado en producción con React, Node.js, TypeScript y MongoDB.</p></p>
             </div>
             <div>
                 <img src="about-image.jpg" alt="Desarrollo" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
@@ -637,6 +637,84 @@
 
     <section id="proyectos">
         <h2 class="section-title">Proyectos Destacados</h2>
+
+        <!-- ===================== PROYECTO: TURNOLEX ===================== -->
+        <div class="project-card">
+            <div class="project-header" style="background: linear-gradient(135deg, #1f2937 0%, #374151 100%); position: relative; overflow: hidden;">
+                <div style="position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); font-size: 5rem; opacity: 0.1;">⚖️</div>
+                <h3>Turno<span style="color: #d97706;">Lex</span>
+                    <span style="display: inline-block; background: linear-gradient(135deg, #d97706, #b45309); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; vertical-align: middle; animation: pulse-green 2s infinite;">EN PRODUCCIÓN</span>
+                </h3>
+                <p>SaaS Personal | Febrero 2026 — Presente</p>
+                <div class="project-meta">
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">React</span>
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">TypeScript</span>
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">Node.js</span>
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">MongoDB</span>
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">JWT</span>
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">Cloudinary</span>
+                    <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">PDFKit</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <p class="project-description">
+                    Sistema SaaS multi-tenant de gestión de turnos orientado a estudios jurídicos argentinos. Arquitectura completa con aislamiento de datos por estudio, sistema de roles con tres niveles de acceso, calendario interactivo, generación de PDFs y emails transaccionales automáticos. Deployado en producción con CI/CD automático.
+                </p>
+
+                <!-- Deploy badges -->
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #000; color: white;"><i class="fas fa-globe"></i> Vercel</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #7c3aed; color: white;"><i class="fas fa-server"></i> Railway</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #16a34a; color: white;"><i class="fas fa-database"></i> MongoDB Atlas</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #2563eb; color: white;"><i class="fas fa-image"></i> Cloudinary</span>
+                </div>
+
+                <!-- Stats -->
+                <div class="project-stats">
+                    <div class="stat-item" style="background: #fef3c7; border: 1px solid #fde68a;">
+                        <div class="stat-number" style="color: #d97706;">3</div>
+                        <div class="stat-label">Roles de usuario</div>
+                    </div>
+                    <div class="stat-item" style="background: #fef3c7; border: 1px solid #fde68a;">
+                        <div class="stat-number" style="color: #d97706;">15+</div>
+                        <div class="stat-label">Endpoints REST</div>
+                    </div>
+                    <div class="stat-item" style="background: #fef3c7; border: 1px solid #fde68a;">
+                        <div class="stat-number" style="color: #d97706;">100%</div>
+                        <div class="stat-label">TypeScript</div>
+                    </div>
+                    <div class="stat-item" style="background: #fef3c7; border: 1px solid #fde68a;">
+                        <div class="stat-number" style="color: #d97706;">∞</div>
+                        <div class="stat-label">Multi-tenant</div>
+                    </div>
+                </div>
+
+                <div class="project-features">
+                    <h4 style="color: #d97706;">Características Principales:</h4>
+                    <ul>
+                        <li style="--check-color: #d97706">Arquitectura multi-tenant — datos aislados por estudio vía <code>estudioId</code></li>
+                        <li>Sistema de roles: Admin, Abogado y Cliente con guards de navegación</li>
+                        <li>Calendario interactivo con FullCalendar — vistas diaria, semanal y mensual</li>
+                        <li>Generación automática de comprobantes PDF con diseño profesional (PDFKit)</li>
+                        <li>Emails transaccionales — confirmación, recordatorio y cancelación</li>
+                        <li>Sistema de aprobación de estudios con control via superadmin</li>
+                        <li>Subida de archivos con Cloudinary — logos e imágenes de perfil</li>
+                        <li>Reportes con gráficos usando Recharts</li>
+                        <li>Deploy CI/CD automático desde GitHub — Railway + Vercel</li>
+                    </ul>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://turnolex.vercel.app" target="_blank" class="btn" style="background: linear-gradient(135deg, #d97706, #b45309); color: white;">
+                        <i class="fas fa-external-link-alt"></i> Ver en Producción
+                    </a>
+                    <a href="https://github.com/Gonza28fq/turnolex" target="_blank" class="btn" style="background: white; color: #d97706; border: 2px solid #d97706;">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <!-- ===================== PROYECTO: GESTOR DE TAREAS ===================== -->
         <div class="project-card">
@@ -937,7 +1015,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Gonzalo Iván Pedraza. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Gonzalo Iván Pedraza. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem; opacity: 0.8;">Desarrollador Full Stack | Tucumán, Argentina</p>
     </footer>
 
