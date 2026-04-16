@@ -206,7 +206,6 @@
             border: 1px solid #e2e8f0;
         }
 
-        /* Badge "Nuevo" */
         .badge-new {
             display: inline-block;
             background: linear-gradient(135deg, #10b981, #059669);
@@ -245,7 +244,6 @@
             padding: 2rem;
         }
 
-        /* Header especial para el proyecto nuevo */
         .project-header.header-taskmanager {
             background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
         }
@@ -313,7 +311,6 @@
             margin-top: 2rem;
         }
 
-        /* Grid de 2 columnas para el task manager */
         .screenshots-grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -412,7 +409,6 @@
             color: white;
         }
 
-        /* Estadísticas del proyecto */
         .project-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -526,6 +522,258 @@
             font-size: 40px;
             cursor: pointer;
         }
+
+        /* ─── BENTO GRID ─── */
+        .bento-divider {
+            max-width: 1200px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0 2rem;
+        }
+        .bento-divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0);
+        }
+        .bento-divider-line.right {
+            background: linear-gradient(90deg, #e2e8f0, transparent);
+        }
+        .bento-divider span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #a0aec0;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .bento-grid {
+            display: grid;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.25rem;
+        }
+
+        .bento-nutriapp  { grid-column: 1 / 8;  grid-row: 1; }
+        .bento-concesion { grid-column: 8 / 13; grid-row: 1; }
+        .bento-whatsapp  { grid-column: 1 / 6;  grid-row: 2; }
+        .bento-alertas   { grid-column: 6 / 13; grid-row: 2; }
+
+        .bento-card {
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+        }
+
+        .bento-header {
+            padding: 1.75rem 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .bento-bg-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 4.5rem;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+        .bento-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            margin-bottom: 0.75rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        .bento-badge i { font-size: 0.6rem; }
+        .bento-header h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.35rem;
+        }
+        .bento-header p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .bento-body {
+            padding: 1.5rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .bento-desc {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+        }
+
+        .bento-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+        .bento-tag {
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1.5px solid;
+        }
+
+        .bento-stats {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+        .bento-stat {
+            flex: 1;
+            min-width: 60px;
+            text-align: center;
+            padding: 0.6rem 0.4rem;
+            border-radius: 12px;
+        }
+        .bento-stat .num {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        .bento-stat .lbl {
+            font-size: 0.65rem;
+            margin-top: 0.2rem;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        .bento-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        .bento-features li {
+            padding: 0.28rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 0.87rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .bento-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .bento-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+        .bento-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.4rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: 2px solid transparent;
+        }
+        .bento-btn:hover { transform: translateY(-2px); }
+
+        /* NutriApp — verde */
+        .nutriapp-grad  { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+        .tag-nutriapp   { color: #047857; border-color: #6ee7b7; background: #f0fdf4; }
+        .stat-nutriapp  { background: #f0fdf4; }
+        .stat-nutriapp .num { color: #059669; }
+        .stat-nutriapp .lbl { color: #065f46; }
+        .bento-nutriapp .bento-features li::before { color: #059669; }
+        .btn-fill-nutriapp { background: linear-gradient(135deg, #059669, #047857); color: white; }
+        .btn-fill-nutriapp:hover { box-shadow: 0 4px 14px rgba(5,150,105,0.4); }
+        .btn-out-nutriapp { color: #059669; border-color: #059669; background: white; }
+        .btn-out-nutriapp:hover { background: #059669; color: white; }
+
+        /* Concesionaria — azul */
+        .concesion-grad { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); }
+        .tag-concesion  { color: #1e40af; border-color: #93c5fd; background: #eff6ff; }
+        .stat-concesion { background: #eff6ff; }
+        .stat-concesion .num { color: #1e40af; }
+        .stat-concesion .lbl { color: #1e3a8a; }
+        .bento-concesion .bento-features li::before { color: #1e40af; }
+        .btn-fill-concesion { background: linear-gradient(135deg, #1e40af, #1e3a8a); color: white; }
+        .btn-fill-concesion:hover { box-shadow: 0 4px 14px rgba(30,64,175,0.4); }
+        .btn-out-concesion { color: #1e40af; border-color: #1e40af; background: white; }
+        .btn-out-concesion:hover { background: #1e40af; color: white; }
+
+        /* Bot WhatsApp — verde WA */
+        .whatsapp-grad  { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); }
+        .tag-whatsapp   { color: #15803d; border-color: #86efac; background: #f0fdf4; }
+        .stat-whatsapp  { background: #f0fdf4; }
+        .stat-whatsapp .num { color: #16a34a; }
+        .stat-whatsapp .lbl { color: #14532d; }
+        .bento-whatsapp .bento-features li::before { color: #16a34a; }
+        .btn-fill-whatsapp { background: linear-gradient(135deg, #16a34a, #15803d); color: white; }
+        .btn-fill-whatsapp:hover { box-shadow: 0 4px 14px rgba(22,163,74,0.4); }
+
+        /* Alertas — cyan */
+        .alertas-grad   { background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); }
+        .tag-alertas    { color: #0e7490; border-color: #67e8f9; background: #ecfeff; }
+        .stat-alertas   { background: #ecfeff; }
+        .stat-alertas .num { color: #0891b2; }
+        .stat-alertas .lbl { color: #164e63; }
+        .bento-alertas .bento-features li::before { color: #0891b2; }
+        .btn-fill-alertas { background: linear-gradient(135deg, #0891b2, #0e7490); color: white; }
+        .btn-fill-alertas:hover { box-shadow: 0 4px 14px rgba(8,145,178,0.4); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .bento-card { animation: fadeUp 0.5s ease both; }
+        .bento-nutriapp  { animation-delay: 0.05s; }
+        .bento-concesion { animation-delay: 0.15s; }
+        .bento-whatsapp  { animation-delay: 0.25s; }
+        .bento-alertas   { animation-delay: 0.35s; }
+
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr 1fr; }
+            .bento-nutriapp, .bento-concesion,
+            .bento-whatsapp, .bento-alertas {
+                grid-column: auto; grid-row: auto;
+            }
+        }
+        @media (max-width: 600px) {
+            .bento-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+            .bento-divider { padding: 0 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -562,7 +810,7 @@
             <div class="about-text">
                 <p>Soy <span class="highlight">Desarrollador Full Stack</span> recién graduado del Instituto 9 de Julio, con sólida formación técnica y <span class="highlight">dominio avanzado de inglés técnico</span> (Traductor certificado).</p>
                 <p>Mi experiencia incluye el desarrollo de un <span class="highlight">sistema integral de gestión comercial</span> con arquitectura modular, sistema de roles/permisos y seguridad robusta, logrando una <span class="highlight">reducción del 85% en errores administrativos</span>.</p>
-                <p>Actualmente desarrollo <span class="highlight">TurnoLex</span>, un SaaS multi-tenant de gestión de turnos para estudios jurídicos, deployado en producción con React, Node.js, TypeScript y MongoDB.</p></p>
+                <p>Actualmente desarrollo <span class="highlight">TurnoLex</span>, un SaaS multi-tenant de gestión de turnos para estudios jurídicos, deployado en producción con React, Node.js, TypeScript y MongoDB.</p>
             </div>
             <div>
                 <img src="about-image.jpg" alt="Desarrollo" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
@@ -656,21 +904,16 @@
                     <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">PDFKit</span>
                 </div>
             </div>
-
             <div class="project-content">
                 <p class="project-description">
                     Sistema SaaS multi-tenant de gestión de turnos orientado a estudios jurídicos argentinos. Arquitectura completa con aislamiento de datos por estudio, sistema de roles con tres niveles de acceso, calendario interactivo, generación de PDFs y emails transaccionales automáticos. Deployado en producción con CI/CD automático.
                 </p>
-
-                <!-- Deploy badges -->
                 <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0;">
                     <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #000; color: white;"><i class="fas fa-globe"></i> Vercel</span>
                     <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #7c3aed; color: white;"><i class="fas fa-server"></i> Railway</span>
                     <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #16a34a; color: white;"><i class="fas fa-database"></i> MongoDB Atlas</span>
                     <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; background: #2563eb; color: white;"><i class="fas fa-image"></i> Cloudinary</span>
                 </div>
-
-                <!-- Stats -->
                 <div class="project-stats">
                     <div class="stat-item" style="background: #fef3c7; border: 1px solid #fde68a;">
                         <div class="stat-number" style="color: #d97706;">3</div>
@@ -689,11 +932,10 @@
                         <div class="stat-label">Multi-tenant</div>
                     </div>
                 </div>
-
                 <div class="project-features">
                     <h4 style="color: #d97706;">Características Principales:</h4>
                     <ul>
-                        <li style="--check-color: #d97706">Arquitectura multi-tenant — datos aislados por estudio vía <code>estudioId</code></li>
+                        <li>Arquitectura multi-tenant — datos aislados por estudio vía <code>estudioId</code></li>
                         <li>Sistema de roles: Admin, Abogado y Cliente con guards de navegación</li>
                         <li>Calendario interactivo con FullCalendar — vistas diaria, semanal y mensual</li>
                         <li>Generación automática de comprobantes PDF con diseño profesional (PDFKit)</li>
@@ -704,7 +946,6 @@
                         <li>Deploy CI/CD automático desde GitHub — Railway + Vercel</li>
                     </ul>
                 </div>
-
                 <div class="project-links">
                     <a href="https://turnolex.vercel.app" target="_blank" class="btn" style="background: linear-gradient(135deg, #d97706, #b45309); color: white;">
                         <i class="fas fa-external-link-alt"></i> Ver en Producción
@@ -730,13 +971,10 @@
                     <span class="project-tag">JWT</span>
                 </div>
             </div>
-
             <div class="project-content">
                 <p class="project-description">
                     Aplicación web full stack para la gestión de tareas personales. Desarrollada con un stack moderno (React + TypeScript en el frontend, Node.js + MongoDB en el backend), incluye autenticación completa, subtareas, notificaciones por fecha límite, drag & drop, búsqueda en tiempo real y modo oscuro.
                 </p>
-
-                <!-- Stats rápidas -->
                 <div class="project-stats">
                     <div class="stat-item">
                         <div class="stat-number">2</div>
@@ -755,7 +993,6 @@
                         <div class="stat-label">TypeScript</div>
                     </div>
                 </div>
-
                 <div class="project-features">
                     <h4>Características Principales:</h4>
                     <ul>
@@ -770,7 +1007,6 @@
                         <li>Estadísticas visuales en tiempo real</li>
                     </ul>
                 </div>
-
                 <h4 style="color: var(--primary); margin-bottom: 1rem;">Capturas del Sistema:</h4>
                 <div class="screenshots-grid-2">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/taskmanager-light.png')">
@@ -782,7 +1018,6 @@
                         <div class="screenshot-caption">Dashboard — Modo Oscuro</div>
                     </div>
                 </div>
-
                 <div class="project-links">
                     <a href="https://github.com/Gonza28fq/gestor-de-tareas" target="_blank" class="btn btn-purple">
                         <i class="fab fa-github"></i> Ver Código en GitHub
@@ -793,6 +1028,229 @@
                 </div>
             </div>
         </div>
+
+        <!-- ===================== BENTO GRID — PROYECTOS PARA CLIENTES ===================== -->
+        <div class="bento-divider">
+            <div class="bento-divider-line"></div>
+            <span>Proyectos para Clientes</span>
+            <div class="bento-divider-line right"></div>
+        </div>
+
+        <div class="bento-grid">
+
+            <!-- NUTRIAPP -->
+            <div class="bento-card bento-nutriapp">
+                <div class="bento-header nutriapp-grad">
+                    <span class="bento-bg-icon">🥗</span>
+                    <span class="bento-badge"><i class="fas fa-circle"></i> EN DESARROLLO</span>
+                    <h3>NutriApp</h3>
+                    <p>Sistema de gestión para nutricionistas · Marzo 2026</p>
+                </div>
+                <div class="bento-body">
+                    <p class="bento-desc">
+                        Plataforma web fullstack para consultorios de nutrición. Gestión de pacientes, turnos, consultas, mediciones antropométricas, planes alimenticios y blog público. Incluye generación de PDFs/Excel, gráficos de evolución y sistema de temas personalizables por consultorio.
+                    </p>
+                    <div class="bento-tags">
+                        <span class="bento-tag tag-nutriapp">React 18</span>
+                        <span class="bento-tag tag-nutriapp">TypeScript</span>
+                        <span class="bento-tag tag-nutriapp">Node.js</span>
+                        <span class="bento-tag tag-nutriapp">MySQL</span>
+                        <span class="bento-tag tag-nutriapp">Tailwind CSS</span>
+                        <span class="bento-tag tag-nutriapp">JWT</span>
+                        <span class="bento-tag tag-nutriapp">Recharts</span>
+                        <span class="bento-tag tag-nutriapp">jsPDF</span>
+                    </div>
+                    <div class="bento-stats">
+                        <div class="bento-stat stat-nutriapp">
+                            <div class="num">15+</div>
+                            <div class="lbl">Endpoints REST</div>
+                        </div>
+                        <div class="bento-stat stat-nutriapp">
+                            <div class="num">13</div>
+                            <div class="lbl">Tablas MySQL</div>
+                        </div>
+                        <div class="bento-stat stat-nutriapp">
+                            <div class="num">6</div>
+                            <div class="lbl">Temas de color</div>
+                        </div>
+                        <div class="bento-stat stat-nutriapp">
+                            <div class="num">100%</div>
+                            <div class="lbl">TypeScript</div>
+                        </div>
+                    </div>
+                    <ul class="bento-features">
+                        <li>Arquitectura MVC en backend — 4 capas bien definidas (Routes, Controllers, Models, Middlewares)</li>
+                        <li>Autenticación JWT con logout automático al expirar el token</li>
+                        <li>Rate limiting: 500 req/15min global + 20 intentos en /auth (anti fuerza bruta)</li>
+                        <li>Generación de planes alimenticios en PDF (jsPDF) y exportación a Excel (SheetJS)</li>
+                        <li>Sistema de 6 temas de color con CSS Custom Properties — persiste en DB y localStorage</li>
+                    </ul>
+                    <div class="bento-links">
+                        <a href="https://github.com/Gonza28fq/nutriapp" target="_blank" class="bento-btn btn-fill-nutriapp">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONCESIONARIA -->
+            <div class="bento-card bento-concesion">
+                <div class="bento-header concesion-grad">
+                    <span class="bento-bg-icon">🚗</span>
+                    <span class="bento-badge"><i class="fas fa-circle"></i> EN DESARROLLO</span>
+                    <h3>Sistema Concesionaria</h3>
+                    <p>Gestión interna de autos usados · Abril 2026</p>
+                </div>
+                <div class="bento-body">
+                    <p class="bento-desc">
+                        Sistema interno para concesionaria de autos usados. Stock de vehículos con hasta 10 fotos, gestión de precios con ajuste masivo por inflación, historial de reparaciones, ventas y audit log completo de todas las acciones críticas.
+                    </p>
+                    <div class="bento-tags">
+                        <span class="bento-tag tag-concesion">React</span>
+                        <span class="bento-tag tag-concesion">Tailwind CSS</span>
+                        <span class="bento-tag tag-concesion">Node.js</span>
+                        <span class="bento-tag tag-concesion">PostgreSQL</span>
+                        <span class="bento-tag tag-concesion">JWT</span>
+                    </div>
+                    <div class="bento-stats">
+                        <div class="bento-stat stat-concesion">
+                            <div class="num">2</div>
+                            <div class="lbl">Roles</div>
+                        </div>
+                        <div class="bento-stat stat-concesion">
+                            <div class="num">10</div>
+                            <div class="lbl">Fotos / auto</div>
+                        </div>
+                        <div class="bento-stat stat-concesion">
+                            <div class="num">5</div>
+                            <div class="lbl">Módulos</div>
+                        </div>
+                        <div class="bento-stat stat-concesion">
+                            <div class="num">100%</div>
+                            <div class="lbl">Trazabilidad</div>
+                        </div>
+                    </div>
+                    <ul class="bento-features">
+                        <li>ABM de vehículos con carga múltiple de fotos (la primera = imagen principal)</li>
+                        <li>Ajuste masivo de precios por porcentaje con historial automático de cambios</li>
+                        <li>Roles Admin / Vendedor — permisos granulares por módulo</li>
+                        <li>Audit log de solo lectura: logins, ventas, cambios de precio y eliminaciones</li>
+                        <li>Vehículo vendido bloqueado automáticamente para edición o eliminación</li>
+                    </ul>
+                    <div class="bento-links">
+                        <a href="https://github.com/Gonza28fq/ConcesionarIaIba-ez" target="_blank" class="bento-btn btn-fill-concesion">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOT WHATSAPP -->
+            <div class="bento-card bento-whatsapp">
+                <div class="bento-header whatsapp-grad">
+                    <span class="bento-bg-icon">💬</span>
+                    <span class="bento-badge"><i class="fas fa-check-circle"></i> ENTREGADO</span>
+                    <h3>Bot de Pagos WhatsApp</h3>
+                    <p>Verificación de cobros en tiempo real · Marzo 2026</p>
+                </div>
+                <div class="bento-body">
+                    <p class="bento-desc">
+                        Bot de WhatsApp que permite a empleados verificar en menos de 3 segundos si una transferencia impactó en Mercado Pago, sin necesidad de llamar al dueño. El empleado escribe el monto y recibe confirmación inmediata con hora y pagador.
+                    </p>
+                    <div class="bento-tags">
+                        <span class="bento-tag tag-whatsapp">Node.js</span>
+                        <span class="bento-tag tag-whatsapp">Twilio</span>
+                        <span class="bento-tag tag-whatsapp">WhatsApp API</span>
+                        <span class="bento-tag tag-whatsapp">Mercado Pago API</span>
+                        <span class="bento-tag tag-whatsapp">Railway</span>
+                    </div>
+                    <div class="bento-stats">
+                        <div class="bento-stat stat-whatsapp">
+                            <div class="num">&lt;3s</div>
+                            <div class="lbl">Respuesta</div>
+                        </div>
+                        <div class="bento-stat stat-whatsapp">
+                            <div class="num">6</div>
+                            <div class="lbl">Comandos</div>
+                        </div>
+                        <div class="bento-stat stat-whatsapp">
+                            <div class="num">~$7</div>
+                            <div class="lbl">USD/mes</div>
+                        </div>
+                        <div class="bento-stat stat-whatsapp">
+                            <div class="num">0</div>
+                            <div class="lbl">Intervención manual</div>
+                        </div>
+                    </div>
+                    <ul class="bento-features">
+                        <li>Consulta directa a la API de MP — no acepta comprobantes (evita fraudes)</li>
+                        <li>Lenguaje natural: entiende "$5000", "impactó?", "últimos pagos", "5000 hace 5"</li>
+                        <li>Solo lectura sobre MP — el bot no puede realizar pagos ni transferencias</li>
+                        <li>Access Token cifrado como variable de entorno en Railway</li>
+                        <li>Solo números de empleados autorizados pueden consultar</li>
+                    </ul>
+                    <div class="bento-links">
+                        <a href="https://github.com/Gonza28fq/mp-whatsapp-bot" target="_blank" class="bento-btn btn-fill-whatsapp">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALERTAS DE COBROS -->
+            <div class="bento-card bento-alertas">
+                <div class="bento-header alertas-grad">
+                    <span class="bento-bg-icon">🔔</span>
+                    <span class="bento-badge"><i class="fas fa-check-circle"></i> ENTREGADO</span>
+                    <h3>Sistema de Alertas de Cobros</h3>
+                    <p>Monitoreo automático Mercado Pago + Brubank · Marzo 2026</p>
+                </div>
+                <div class="bento-body">
+                    <p class="bento-desc">
+                        Automatización que monitorea cuentas de Mercado Pago y Brubank y envía alertas instantáneas por Telegram al celular de cada empleado por sucursal en el momento en que ingresa un pago, eliminando la dependencia del dueño para confirmar cobros.
+                    </p>
+                    <div class="bento-tags">
+                        <span class="bento-tag tag-alertas">Node.js</span>
+                        <span class="bento-tag tag-alertas">Telegram Bot API</span>
+                        <span class="bento-tag tag-alertas">Mercado Pago API</span>
+                        <span class="bento-tag tag-alertas">Brubank</span>
+                        <span class="bento-tag tag-alertas">Railway</span>
+                    </div>
+                    <div class="bento-stats">
+                        <div class="bento-stat stat-alertas">
+                            <div class="num">&lt;5s</div>
+                            <div class="lbl">Tiempo alerta</div>
+                        </div>
+                        <div class="bento-stat stat-alertas">
+                            <div class="num">2</div>
+                            <div class="lbl">Billeteras</div>
+                        </div>
+                        <div class="bento-stat stat-alertas">
+                            <div class="num">~$7</div>
+                            <div class="lbl">USD/mes</div>
+                        </div>
+                        <div class="bento-stat stat-alertas">
+                            <div class="num">0</div>
+                            <div class="lbl">Acción manual</div>
+                        </div>
+                    </div>
+                    <ul class="bento-features">
+                        <li>Monitoreo en tiempo real de Mercado Pago mediante webhooks oficiales</li>
+                        <li>Integración con Brubank vía procesamiento de notificaciones push</li>
+                        <li>Soporte multi-sucursal — cada empleado recibe solo alertas de su local</li>
+                        <li>Sistema 100% automático, sin intervención del dueño ni del empleado</li>
+                        <li>Deploy en Railway con reinicio automático ante caídas del servidor</li>
+                    </ul>
+                    <div class="bento-links">
+                        <a href="#" class="bento-btn btn-fill-alertas">
+                            <i class="fab fa-github"></i> GitHub (próximamente)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- FIN BENTO GRID -->
 
         <!-- ===================== PROYECTO: SISTEMA GESTIÓN COMERCIAL ===================== -->
         <div class="project-card">
@@ -807,14 +1265,12 @@
                     <span class="project-tag">API REST</span>
                 </div>
             </div>
-            
             <div class="project-content">
                 <p class="project-description">
                     Sistema integral de gestión empresarial que automatiza procesos comerciales internos, 
                     eliminando métodos manuales y sistemas aislados. Desarrollado completamente de forma individual 
                     con documentación técnica exhaustiva de 240 páginas.
                 </p>
-                
                 <div class="project-features">
                     <h4>Características Principales:</h4>
                     <ul>
@@ -827,7 +1283,6 @@
                         <li>Control de stock en tiempo real con alertas automáticas</li>
                     </ul>
                 </div>
-                
                 <h4>Capturas del Sistema:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/login1.png')">
@@ -839,7 +1294,6 @@
                         <div class="screenshot-caption">Sistema de Validaciones</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Dashboard Principal:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/dashboard1.png')">
@@ -855,7 +1309,6 @@
                         <div class="screenshot-caption">Sección Mi Perfil</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Clientes:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/clientes2.png')">
@@ -871,7 +1324,6 @@
                         <div class="screenshot-caption">Detalle y Estadísticas</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Ventas:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/ventas1.png')">
@@ -887,7 +1339,6 @@
                         <div class="screenshot-caption">Facturación</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Productos/Stock:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/productos3.png')">
@@ -903,7 +1354,6 @@
                         <div class="screenshot-caption">Alertas de Stock</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Compras:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/compras1.png')">
@@ -919,7 +1369,6 @@
                         <div class="screenshot-caption">Proveedores</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Usuarios y Roles:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/usuarios1.png')">
@@ -935,7 +1384,6 @@
                         <div class="screenshot-caption">Permisos por Rol</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Auditoría:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/auditoria1.png')">
@@ -947,7 +1395,6 @@
                         <div class="screenshot-caption">Trazabilidad Completa</div>
                     </div>
                 </div>
-                
                 <h4 style="margin-top: 2rem;">Módulo de Reportes:</h4>
                 <div class="screenshots-grid">
                     <div class="screenshot-item" onclick="openLightbox('screenshots/reportes1.png')">
@@ -963,7 +1410,6 @@
                         <div class="screenshot-caption">Visualización de Datos</div>
                     </div>
                 </div>
-                
                 <div class="project-links">
                     <a href="https://github.com/Gonza28fq/Tesis_Final" target="_blank" class="btn btn-primary">
                         <i class="fab fa-github"></i> Ver Código en GitHub
@@ -974,6 +1420,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <section id="contacto">
