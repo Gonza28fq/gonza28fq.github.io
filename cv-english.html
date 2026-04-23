@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gonzalo Iván Pedraza - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Arial', sans-serif; line-height: 1.6; color: #2d3748; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border-radius: 12px; overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 40px; text-align: center; position: relative; }
+        .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%); }
+        .header-inner { display: flex; align-items: center; justify-content: center; gap: 35px; flex-wrap: wrap; }
+        .profile-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.3); flex-shrink: 0; }
+        .header-text { text-align: left; }
+        .header h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header .subtitle { font-size: 16px; margin-bottom: 20px; opacity: 0.95; font-weight: 500; }
+        .contact-info { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+        .contact-info span { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 20px; }
+        .content { padding: 40px; }
+        .section { margin-bottom: 35px; }
+        .section-title { font-size: 22px; color: #667eea; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #667eea; letter-spacing: 1px; position: relative; }
+        .section-title::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%); }
+        .profile-text { text-align: justify; font-size: 15px; line-height: 1.8; color: #4a5568; background: #f7fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; }
+        .job { margin-bottom: 30px; padding: 20px; background: #f7fafc; border-radius: 8px; border-left: 4px solid #764ba2; transition: transform 0.2s; }
+        .job:hover { transform: translateX(5px); }
+        .job.turnolex { border-left: 4px solid #d97706; }
+        .job.gestor { border-left: 4px solid #7c3aed; }
+        .job.nutriapp { border-left: 4px solid #059669; }
+        .job.concesionaria { border-left: 4px solid #1e40af; }
+        .job.bots { border-left: 4px solid #0891b2; }
+        .job-header { margin-bottom: 15px; }
+        .job-title { font-size: 17px; font-weight: 700; color: #2d3748; margin-bottom: 5px; }
+        .job-role { font-size: 15px; color: #667eea; font-style: italic; font-weight: 600; }
+        .job-role.turnolex-role { color: #d97706; }
+        .job-role.gestor-role { color: #7c3aed; }
+        .job-role.nutriapp-role { color: #059669; }
+        .job-role.concesionaria-role { color: #1e40af; }
+        .job-role.bots-role { color: #0891b2; }
+        .job-period { font-size: 13px; color: #718096; margin-top: 5px; }
+        .job-description { font-size: 14px; margin-bottom: 15px; line-height: 1.7; color: #4a5568; }
+        .job ul { padding-left: 25px; margin-bottom: 15px; }
+        .job li { font-size: 14px; margin-bottom: 8px; line-height: 1.6; color: #4a5568; }
+        .job li::marker { color: #667eea; }
+        .job.turnolex li::marker { color: #d97706; }
+        .job.gestor li::marker { color: #7c3aed; }
+        .job.nutriapp li::marker { color: #059669; }
+        .job.concesionaria li::marker { color: #1e40af; }
+        .job.bots li::marker { color: #0891b2; }
+        .tech-stack { background: white; padding: 12px 16px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+        .tech-label { font-weight: 700; color: #667eea; font-size: 13px; display: block; margin-bottom: 5px; }
+        .tech-label.turnolex { color: #d97706; }
+        .tech-label.gestor { color: #7c3aed; }
+        .tech-label.nutriapp { color: #059669; }
+        .tech-label.concesionaria { color: #1e40af; }
+        .tech-label.bots { color: #0891b2; }
+        .tech-items { font-size: 13px; color: #4a5568; line-height: 1.6; }
+        .deploy-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+        .deploy-pill { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 12px; color: white; }
+        .pill-vercel { background: #000; }
+        .pill-railway { background: #7c3aed; }
+        .pill-mongo { background: #16a34a; }
+        .pill-cloudinary { background: #2563eb; }
+        .pill-mysql { background: #e07b39; }
+        .pill-telegram { background: #229ed9; }
+        .pill-twilio { background: #f22f46; }
+        .pill-mp { background: #009ee3; }
+        .badge-produccion { display: inline-block; background: linear-gradient(135deg, #d97706, #b45309); color: white; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .badge-dev { display: inline-block; background: linear-gradient(135deg, #1e40af, #1e3a8a); color: white; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .badge-entregado { display: inline-block; background: linear-gradient(135deg, #059669, #047857); color: white; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .education-item { margin-bottom: 20px; padding: 15px; background: #f7fafc; border-radius: 6px; border-left: 3px solid #f5576c; }
+        .education-degree { font-size: 16px; font-weight: 700; color: #2d3748; margin-bottom: 5px; }
+        .education-school { font-size: 14px; color: #718096; }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .skill-category { background: #f7fafc; padding: 15px; border-radius: 6px; border-left: 3px solid #667eea; }
+        .skill-category.it-support { border-left: 3px solid #0891b2; }
+        .skill-category.automation { border-left: 3px solid #059669; }
+        .skill-title { font-weight: 700; color: #667eea; font-size: 14px; margin-bottom: 8px; }
+        .skill-title.it-support { color: #0891b2; }
+        .skill-title.automation { color: #059669; }
+        .skill-items { font-size: 13px; color: #4a5568; line-height: 1.7; }
+        .cert-item { margin-bottom: 15px; padding: 12px 15px; background: #f7fafc; border-radius: 6px; border-left: 3px solid #f093fb; }
+        .cert-name { font-weight: 700; color: #2d3748; font-size: 15px; margin-bottom: 3px; }
+        .cert-org { font-size: 13px; color: #718096; }
+        .language-item { margin-bottom: 15px; padding: 15px; background: #f7fafc; border-radius: 6px; }
+        .language-name { font-weight: 700; color: #667eea; font-size: 15px; margin-bottom: 5px; }
+        .language-level { font-size: 14px; color: #4a5568; margin-bottom: 8px; }
+        .language-item ul { padding-left: 20px; margin-top: 8px; }
+        .language-item li { font-size: 13px; color: #718096; margin-bottom: 5px; }
+        .additional-info { background: #f7fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #f5576c; }
+        .additional-info ul { padding-left: 25px; }
+        .additional-info li { font-size: 14px; margin-bottom: 8px; color: #4a5568; line-height: 1.6; }
+        .additional-info li::marker { color: #f5576c; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; border-radius: 0; } .job:hover { transform: none; } }
+        @media (max-width: 768px) { .header { padding: 30px 20px; } .header-inner { flex-direction: column; text-align: center; } .header-text { text-align: center; } .header h1 { font-size: 26px; } .contact-info { justify-content: center; } .content { padding: 30px 20px; } .skills-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-inner">
+                <img class="profile-photo" src="screenshots/perfil.jpeg" alt="Gonzalo Iván Pedraza" />
+                <div class="header-text">
+                    <h1>GONZALO IVÁN PEDRAZA</h1>
+                    <div class="subtitle">Full Stack Software Developer | English Translator</div>
+                    <div class="contact-info">
+                        <span>📍 San Miguel de Tucumán, Argentina</span>
+                        <span>📧 gonza280797@hotmail.com</span>
+                        <span>📱 +54 381 5958981</span>
+                        <span>💼 linkedin.com/in/gonzalo-pedraza-b8b568298</span>
+                        <span>💻 github.com/Gonza28fq</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="section">
+                <div class="section-title">Professional Profile</div>
+                <p class="profile-text">
+                    Recently graduated Full Stack Software Developer with strong technical background and advanced English proficiency. Hands-on experience delivering end-to-end solutions for real clients: <strong>TurnoLex</strong> (multi-tenant SaaS in production), <strong>NutriApp</strong> (nutrition practice management system), <strong>Car Dealership System</strong> (inventory and sales management), and payment automation bots via WhatsApp and Telegram. Proven ability to analyze requirements, design architecture, implement, and document complete software solutions. Committed to continuous learning and technical excellence. Available for remote work internationally.
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Project Experience</div>
+
+                <!-- TURNOLEX -->
+                <div class="job turnolex">
+                    <div class="job-header">
+                        <div class="job-title">TurnoLex — Appointment Management SaaS for Law Firms <span class="badge-produccion">LIVE IN PRODUCTION</span></div>
+                        <div class="job-role turnolex-role">Full Stack Developer — Personal Project</div>
+                        <div class="job-period">February 2026 — Present | turnolex.vercel.app</div>
+                    </div>
+                    <p class="job-description">Multi-tenant SaaS platform for Argentine law firms. Deployed to production with automated CI/CD from GitHub. Features multi-tenant architecture, three-level role system, interactive calendar, PDF generation, and transactional emails.</p>
+                    <div class="deploy-row">
+                        <span class="deploy-pill pill-vercel">▲ Vercel (Frontend)</span>
+                        <span class="deploy-pill pill-railway">⬡ Railway (Backend)</span>
+                        <span class="deploy-pill pill-mongo">● MongoDB Atlas</span>
+                        <span class="deploy-pill pill-cloudinary">☁ Cloudinary</span>
+                    </div>
+                    <strong style="font-size:14px;color:#d97706;display:block;margin:10px 0;">Key responsibilities and achievements:</strong>
+                    <ul>
+                        <li>Multi-tenant architecture with complete data isolation per firm via <code>estudioId</code></li>
+                        <li>Three-level role system: Admin, Lawyer, and Client — with navigation guards per role</li>
+                        <li>Interactive calendar using FullCalendar — daily, weekly, and monthly views</li>
+                        <li>Automated PDF receipt generation with professional design using PDFKit</li>
+                        <li>Firm approval system with superadmin panel and transactional emails (confirmation, reminder, cancellation)</li>
+                        <li>File uploads with Cloudinary — firm logos and profile pictures</li>
+                        <li>Analytics dashboard with line, pie, and bar charts using Recharts</li>
+                        <li>Full CI/CD pipeline: GitHub push → automatic deploy to Railway and Vercel</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label turnolex">Tech stack:</span>
+                        <span class="tech-items">React • TypeScript • Vite • Node.js • Express • MongoDB • Mongoose • JWT • Cloudinary • PDFKit • Nodemailer • FullCalendar • Recharts</span>
+                    </div>
+                </div>
+
+                <!-- NUTRIAPP -->
+                <div class="job nutriapp">
+                    <div class="job-header">
+                        <div class="job-title">NutriApp — Nutrition Practice Management System <span class="badge-dev">IN DEVELOPMENT</span></div>
+                        <div class="job-role nutriapp-role">Full Stack Developer — Client Project</div>
+                        <div class="job-period">March 2026 — Present | github.com/Gonza28fq/nutriapp</div>
+                    </div>
+                    <p class="job-description">Full-stack web platform for nutrition practices. Manages patients, appointments, consultations, anthropometric measurements, meal plans, and a public blog. Includes PDF and Excel export, progress charts, and a customizable color theme system per practice.</p>
+                    <div class="deploy-row">
+                        <span class="deploy-pill pill-vercel">▲ Vercel (Frontend)</span>
+                        <span class="deploy-pill pill-railway">⬡ Railway (Backend)</span>
+                        <span class="deploy-pill pill-mysql">🗄 MySQL</span>
+                    </div>
+                    <strong style="font-size:14px;color:#059669;display:block;margin:10px 0;">Key responsibilities and achievements:</strong>
+                    <ul>
+                        <li>MVC backend architecture with 4 well-defined layers: Routes, Controllers, Models, Middlewares</li>
+                        <li>JWT authentication with automatic logout on token expiry via Axios interceptor</li>
+                        <li>Rate limiting: 500 req/15min global + 20 attempts on /api/auth (brute-force prevention)</li>
+                        <li>Dual validation: Zod on frontend + express-validator on backend with physiological ranges</li>
+                        <li>Meal plan generation as PDF (jsPDF) and Excel export (SheetJS)</li>
+                        <li>Interactive weight and BMI evolution charts with Recharts</li>
+                        <li>6-color theme system using CSS Custom Properties — persists in DB and localStorage</li>
+                        <li>13 MySQL tables with complex relationships; 15+ documented REST endpoints</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label nutriapp">Tech stack:</span>
+                        <span class="tech-items">React 18 • TypeScript • Vite • Tailwind CSS • Zustand • React Hook Form • Zod • Axios • Recharts • jsPDF • SheetJS • Node.js • Express • MySQL • JWT • Helmet • express-rate-limit</span>
+                    </div>
+                </div>
+
+                <!-- CONCESIONARIA -->
+                <div class="job concesionaria">
+                    <div class="job-header">
+                        <div class="job-title">Car Dealership Management System <span class="badge-dev">IN DEVELOPMENT</span></div>
+                        <div class="job-role concesionaria-role">Full Stack Developer — Client Project</div>
+                        <div class="job-period">April 2026 — Present | github.com/Gonza28fq/ConcesionarIaIba-ez</div>
+                    </div>
+                    <p class="job-description">Internal system for a used car dealership. Manages vehicle inventory with up to 10 photos per unit, handles pricing with bulk inflation adjustment, tracks repairs, processes sales, and maintains a full audit log of all critical actions.</p>
+                    <strong style="font-size:14px;color:#1e40af;display:block;margin:10px 0;">Key responsibilities and achievements:</strong>
+                    <ul>
+                        <li>Full vehicle CRUD with multiple photo uploads (up to 10 — first photo = main image)</li>
+                        <li>Price management: individual update + bulk percentage adjustment with automatic change history</li>
+                        <li>Per-vehicle repair log with date, cost, and provider/shop</li>
+                        <li>Sales registration with complete buyer profile (name, ID, phone, address)</li>
+                        <li>Two-role system: Admin (full access) and Salesperson (view + register sales only)</li>
+                        <li>Read-only audit log: logins, sales, price changes and deletions — all with timestamp</li>
+                        <li>License plate and VIN enforced unique at the database level</li>
+                        <li>Sold vehicles automatically locked for editing or deletion</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label concesionaria">Tech stack:</span>
+                        <span class="tech-items">React • Tailwind CSS • Node.js • Express • PostgreSQL • JWT</span>
+                    </div>
+                </div>
+
+                <!-- BOTS -->
+                <div class="job bots">
+                    <div class="job-header">
+                        <div class="job-title">Payment Verification & Alert Bots <span class="badge-entregado">DELIVERED</span></div>
+                        <div class="job-role bots-role">Backend Developer / Automation — Client Projects</div>
+                        <div class="job-period">March 2026 | github.com/Gonza28fq/mp-whatsapp-bot</div>
+                    </div>
+                    <p class="job-description">Two automation solutions for businesses using digital payments. <strong>WhatsApp Bot:</strong> verifies in under 3 seconds whether a transfer has landed in Mercado Pago. <strong>Alert System:</strong> monitors Mercado Pago and Brubank and sends instant Telegram alerts to employees at each branch the moment a payment arrives.</p>
+                    <div class="deploy-row">
+                        <span class="deploy-pill pill-railway">⬡ Railway (24/7)</span>
+                        <span class="deploy-pill pill-telegram">✈ Telegram Bot API</span>
+                        <span class="deploy-pill pill-twilio">📱 Twilio WhatsApp</span>
+                        <span class="deploy-pill pill-mp">💳 Mercado Pago API</span>
+                    </div>
+                    <strong style="font-size:14px;color:#0891b2;display:block;margin:10px 0;">Key responsibilities and achievements:</strong>
+                    <ul>
+                        <li>Direct query to the Mercado Pago API — rejects customer screenshots (fraud prevention)</li>
+                        <li>Response in under 3 seconds with amount, exact timestamp, and payer email</li>
+                        <li>Natural language support: understands "$5000", "did it land?", "latest payments", "5000 5 min ago"</li>
+                        <li>Multi-branch alert system: each employee only receives alerts for their own location</li>
+                        <li>Read-only access to Mercado Pago — the bot cannot make payments or transfers</li>
+                        <li>Access token stored as encrypted environment variable in Railway — never in source code</li>
+                        <li>Railway deploy with automatic restart on failure — ~$6-7 USD/month operating cost</li>
+                        <li>Phone-number-based access control: only authorized employees can query the bot</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label bots">Tech stack:</span>
+                        <span class="tech-items">Node.js • Express • Twilio (WhatsApp API) • Telegram Bot API • Mercado Pago API • Railway</span>
+                    </div>
+                </div>
+
+                <!-- TASK MANAGER -->
+                <div class="job gestor">
+                    <div class="job-header">
+                        <div class="job-title">Task Manager — Full Stack Web Application</div>
+                        <div class="job-role gestor-role">Full Stack Developer — Personal Project</div>
+                        <div class="job-period">February 2026 | github.com/Gonza28fq/gestor-de-tareas</div>
+                    </div>
+                    <p class="job-description">Full-stack task management web app with complete authentication, subtasks, deadline notifications, drag & drop, and dark mode.</p>
+                    <ul>
+                        <li>Full JWT authentication — registration, login, and logout</li>
+                        <li>Complete CRUD with frontend and backend validation</li>
+                        <li>Nested subtasks with visual progress bar</li>
+                        <li>Deadline notifications — alerts for overdue, due today, and due tomorrow</li>
+                        <li>Real-time search and filters by status and priority</li>
+                        <li>Drag & drop to reorder tasks and persistent dark mode</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label gestor">Tech stack:</span>
+                        <span class="tech-items">React • TypeScript • Tailwind CSS • Node.js • Express • MongoDB • JWT</span>
+                    </div>
+                </div>
+
+                <!-- COMMERCIAL MANAGEMENT -->
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Commercial Management System 2.0 — Senior Thesis Project</div>
+                        <div class="job-role">Full Stack Developer</div>
+                        <div class="job-period">January 2024 – November 2024 | github.com/Gonza28fq/Tesis_Final</div>
+                    </div>
+                    <p class="job-description">Comprehensive business management system developed individually, automating internal commercial processes with 240-page technical documentation.</p>
+                    <strong style="font-size:14px;color:#667eea;display:block;margin-bottom:10px;">Key responsibilities and achievements:</strong>
+                    <ul>
+                        <li>Analyzed business requirements, identifying 6 critical operational pain points</li>
+                        <li>Designed modular architecture with 7 modules: Clients, Sales, Purchases, Products/Stock, Users, Audit, and Reports</li>
+                        <li>Implemented complete role and permission system with dynamic interfaces per profile</li>
+                        <li>Robust security: password hashing, stored procedures, real-time validations</li>
+                        <li>Full data migration from legacy systems (Excel spreadsheets)</li>
+                        <li>85% reduction in administrative errors; real-time inventory control with automated alerts</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label">Tech stack:</span>
+                        <span class="tech-items">PHP • JavaScript • HTML5 • CSS3 • Bootstrap • MySQL/MariaDB • Apache • REST API • Composer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="education-item">
+                    <div class="education-degree">Associate Degree in Software Development</div>
+                    <div class="education-school">Instituto 9 de Julio | San Miguel de Tucumán, Argentina | 2022 – 2024</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-degree">English Translator</div>
+                    <div class="education-school">Instituto de Ciencias Empresariales (ICE) | 2021 – 2024</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Technical Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-title">Languages</div>
+                        <div class="skill-items">JavaScript/TypeScript • PHP • Python • C# • HTML5 • CSS3 • SQL</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Frontend</div>
+                        <div class="skill-items">React 18 • TypeScript • Vite • Tailwind CSS • Bootstrap • Zustand • React Hook Form • Zod • FullCalendar • Recharts</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Backend</div>
+                        <div class="skill-items">Node.js • Express • PHP • REST API • JWT • Nodemailer • PDFKit • jsPDF • SheetJS • Multer • Helmet • express-rate-limit</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Databases</div>
+                        <div class="skill-items">MongoDB • MySQL • MariaDB • PostgreSQL • SQLite • Mongoose • Stored Procedures</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Deploy & Cloud</div>
+                        <div class="skill-items">Vercel • Railway • MongoDB Atlas • Cloudinary • GitHub CI/CD</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Security</div>
+                        <div class="skill-items">Password Hashing (bcrypt) • JWT Auth • CORS • Rate Limiting • Multi-tenant • SQL Injection Prevention • express-validator • Zod</div>
+                    </div>
+                    <div class="skill-category automation">
+                        <div class="skill-title automation">Automation & Bots</div>
+                        <div class="skill-items">Telegram Bot API • Twilio WhatsApp API • Mercado Pago API • Webhooks • Node.js scripting • Railway 24/7</div>
+                    </div>
+                    <div class="skill-category it-support">
+                        <div class="skill-title it-support">IT Support</div>
+                        <div class="skill-items">Hardware/software troubleshooting • OS installation (Windows/Linux) • Networking & connectivity • End-user support (in-person & remote) • Preventive and corrective maintenance</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Certifications & Continuous Learning</div>
+                <div class="cert-item">
+                    <div class="cert-name">JavaScript Algorithms and Data Structures</div>
+                    <div class="cert-org">freeCodeCamp | 2025 | Verified certification</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-name">Cybersecurity</div>
+                    <div class="cert-org">In progress (2025)</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Languages</div>
+                <div class="language-item">
+                    <div class="language-name">Spanish</div>
+                    <div class="language-level">Native</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Advanced — Fluent in Technical English</div>
+                    <ul>
+                        <li>Full comprehension of technical documentation in English</li>
+                        <li>Professional written communication</li>
+                        <li>Certified English Translator</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Additional Information</div>
+                <div class="additional-info">
+                    <ul>
+                        <li>Available for remote work (international and local)</li>
+                        <li>Available for on-site work</li>
+                        <li>Proven track record delivering real solutions to clients on short timelines</li>
+                        <li>Strong self-learning ability and quick adaptation to new technologies</li>
+                        <li>Focus on best development practices, security, and clean code</li>
+                        <li>Continuous growth mindset and constant professional development</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
