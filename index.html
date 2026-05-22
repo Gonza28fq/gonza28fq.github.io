@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gonzalo Pedraza | Full Stack Developer</title>
+    <title>Gonzalo Pedraza | Técnico Desarrollador de Software y Traductor de Inglés</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -150,8 +150,9 @@
         .bento-grid { display: grid; max-width: 1200px; margin: 0 auto 3rem; padding: 0 2rem; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; }
         .bento-nutriapp  { grid-column: 1 / 8;  grid-row: 1; }
         .bento-concesion { grid-column: 8 / 13; grid-row: 1; }
-        .bento-whatsapp  { grid-column: 1 / 6;  grid-row: 2; }
-        .bento-alertas   { grid-column: 6 / 13; grid-row: 2; }
+        .bento-lapinta  { grid-column: 1 / 7;  grid-row: 2; }
+        .bento-whatsapp  { grid-column: 7 / 13;  grid-row: 2; }
+        .bento-alertas   { grid-column: 1 / 13; grid-row: 3; }
         .bento-card { border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,0,0,0.08); background: white; }
         .bento-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.14); }
         .bento-header { padding: 1.75rem 2rem 1.5rem; position: relative; overflow: hidden; }
@@ -206,12 +207,21 @@
         .bento-alertas .bento-features li::before { color: #0891b2; }
         .btn-fill-alertas { background: linear-gradient(135deg, #0891b2, #0e7490); color: white; }
         .btn-fill-alertas:hover { box-shadow: 0 4px 14px rgba(8,145,178,0.4); }
+        .lapinta-grad { background: linear-gradient(135deg, #1a2535 0%, #2a3d5c 100%); }
+        .tag-lapinta  { color: #C8A96A; border-color: #C8A96A; background: rgba(200,169,106,.08); }
+        .stat-lapinta { background: rgba(200,169,106,.08); }
+        .stat-lapinta .num { color: #C8A96A; }
+        .stat-lapinta .lbl { color: #8faec7; }
+        .bento-lapinta .bento-features li::before { color: #C8A96A; }
+        .btn-fill-lapinta { background: linear-gradient(135deg, #C8A96A, #a88a50); color: #1a2535; }
+        .btn-fill-lapinta:hover { box-shadow: 0 4px 14px rgba(200,169,106,0.4); }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         .bento-card { animation: fadeUp 0.5s ease both; }
         .bento-nutriapp  { animation-delay: 0.05s; }
         .bento-concesion { animation-delay: 0.15s; }
-        .bento-whatsapp  { animation-delay: 0.25s; }
-        .bento-alertas   { animation-delay: 0.35s; }
+        .bento-lapinta  { animation-delay: 0.25s; }
+        .bento-whatsapp  { animation-delay: 0.35s; }
+        .bento-alertas   { animation-delay: 0.45s; }
 
         .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
         .lightbox.active { display: flex; }
@@ -220,7 +230,7 @@
 
         @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr 1fr; }
-            .bento-nutriapp, .bento-concesion, .bento-whatsapp, .bento-alertas { grid-column: auto; grid-row: auto; }
+            .bento-nutriapp, .bento-concesion, .bento-lapinta, .bento-whatsapp, .bento-alertas { grid-column: auto; grid-row: auto; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -239,10 +249,20 @@
         }
 
         /* ── i18n: hide/show by language ── */
-        [data-lang="en"] { display: none; }
-        body.lang-en [data-lang="es"] { display: none; }
-        body.lang-en [data-lang="en"] { display: revert; }
+        [data-lang="en"] { display: none !important; }
+        body.lang-en [data-lang="es"] { display: none !important; }
+        body.lang-en [data-lang="en"] { display: revert !important; }
         
+         .credential-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; max-width: 780px; margin: 1.5rem auto 2rem; }
+        .credential-card { display: grid; grid-template-columns: 86px 1fr; align-items: center; gap: 1rem; padding: 1rem; border-radius: 16px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); text-align: left; backdrop-filter: blur(10px); }
+        .credential-card img { width: 86px; height: 86px; object-fit: contain; border-radius: 10px; background: white; padding: 4px; cursor: zoom-in; }
+        .credential-card.dev-credential { grid-template-columns: 132px 1fr; }
+        .credential-card.dev-credential img { width: 132px; height: 132px; padding: 6px; }
+        .lightbox.qr-lightbox img { width: min(86vw, 620px); height: auto; max-height: 92vh; object-fit: contain; background: white; padding: 18px; }
+        .credential-card strong { display: block; color: white; font-size: 0.95rem; line-height: 1.25; }
+        .credential-card span { display: block; color: rgba(255,255,255,0.78); font-size: 0.78rem; margin-top: 0.25rem; line-height: 1.35; }
+        @media (max-width: 700px) { .credential-strip { grid-template-columns: 1fr; } }
+
          /* Download cards */
         .cards {
             display: grid;
@@ -412,11 +432,32 @@
         <div class="hero-content">
             <img src="screenshots/perfil.jpeg" alt="Gonzalo Pedraza" class="profile-img">
             <h1>Gonzalo Iván Pedraza</h1>
-            <p class="subtitle" data-lang="es">Full Stack Developer | Traductor de Inglés</p>
-            <p class="subtitle" data-lang="en">Full Stack Developer | English Translator</p>
-            <p data-lang="es">Desarrollador apasionado por crear soluciones que resuelven problemas reales. Especializado en arquitectura modular y desarrollo end-to-end.</p>
-            <p data-lang="en">Developer passionate about building solutions that solve real problems. Specialized in modular architecture and end-to-end development.</p>
+            <p class="subtitle" data-lang="es">Técnico Desarrollador de Software | Traductor de Inglés</p>
+            <p class="subtitle" data-lang="en">Software Development Technician | English Translator</p>
+            <p data-lang="es">Técnico Desarrollador de Software y Traductor de Inglés. Me gusta construir herramientas claras, útiles y mantenibles para problemas reales.</p>
+            <p data-lang="en">Software Development Technician and English Translator. I build clear, useful, maintainable tools for real-world problems.</p>
 
+
+            <div class="credential-strip">
+                <div class="credential-card dev-credential">
+                    <img src="screenshots/WhatsApp Image 2026-05-21 at 20.42.52.jpeg" alt="QR validación título desarrollador" onclick="openLightbox('screenshots/WhatsApp Image 2026-05-21 at 20.42.52.jpeg', true)">
+                    <div>
+                        <strong data-lang="es">Técnico Desarrollador de Software</strong>
+                        <strong data-lang="en">Software Development Technician</strong>
+                        <span data-lang="es">QR de validación académica del título técnico.</span>
+                        <span data-lang="en">Academic validation QR for the technical degree.</span>
+                    </div>
+                </div>
+                <div class="credential-card">
+                    <img src="screenshots/2026-05-21 (1).png" alt="QR validación título traductor" onclick="openLightbox('screenshots/2026-05-21 (1).png', true)">
+                    <div>
+                        <strong data-lang="es">Traductor de Inglés</strong>
+                        <strong data-lang="en">English Translator</strong>
+                        <span data-lang="es">QR de validación académica del título de traducción.</span>
+                        <span data-lang="en">Academic validation QR for the translation credential.</span>
+                    </div>
+                </div>
+            </div>
             <!-- CV DOWNLOAD BUTTONS -->
         <div class="cards">
             <a class="cv-card es" href="cv-actualizado.html" download="Gonzalo_Pedraza_CV_ES.html" target="_blank">
@@ -454,14 +495,14 @@
         <div class="about-content">
             <div class="about-text">
                 <div data-lang="es">
-                    <p>Soy <span class="highlight">Desarrollador Full Stack</span> recién graduado del Instituto 9 de Julio, con sólida formación técnica y <span class="highlight">dominio avanzado de inglés técnico</span> (Traductor certificado).</p>
+                    <p>Soy <span class="highlight">Técnico Desarrollador de Software</span> y <span class="highlight">Traductor de Inglés</span>, con formación técnica, mirada de producto y dominio avanzado de inglés técnico.</p>
                     <p>Mi experiencia incluye el desarrollo de un <span class="highlight">sistema integral de gestión comercial</span> con arquitectura modular, sistema de roles/permisos y seguridad robusta, logrando una <span class="highlight">reducción del 85% en errores administrativos</span>.</p>
-                    <p>Actualmente desarrollo <span class="highlight">TurnoLex</span>, un SaaS multi-tenant de gestión de turnos para estudios jurídicos, deployado en producción con React, Node.js, TypeScript y MongoDB.</p>
+                    <p>Entre mis proyectos personales está <span class="highlight">TurnoLex</span>, un SaaS multi-tenant de gestión de turnos para estudios jurídicos, deployado en producción con React, Node.js, TypeScript y MongoDB.</p>
                 </div>
                 <div data-lang="en">
-                    <p>I'm a <span class="highlight">Full Stack Developer</span> recently graduated from Instituto 9 de Julio, with strong technical skills and <span class="highlight">advanced technical English proficiency</span> (Certified Translator).</p>
+                    <p>I'm a <span class="highlight">Software Development Technician</span> and <span class="highlight">English Translator</span>, with strong technical training, product sense, and advanced technical English proficiency.</p>
                     <p>My experience includes developing a <span class="highlight">comprehensive commercial management system</span> with modular architecture, role/permission management, and robust security — achieving an <span class="highlight">85% reduction in administrative errors</span>.</p>
-                    <p>I'm currently building <span class="highlight">TurnoLex</span>, a multi-tenant SaaS appointment management platform for law firms, deployed to production using React, Node.js, TypeScript and MongoDB.</p>
+                    <p>One of my personal projects is <span class="highlight">TurnoLex</span>, a multi-tenant SaaS appointment management platform for law firms, deployed to production using React, Node.js, TypeScript and MongoDB.</p>
                 </div>
             </div>
             <div>
@@ -535,8 +576,8 @@
                     <span style="display: inline-block; background: linear-gradient(135deg, #d97706, #b45309); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; vertical-align: middle; animation: pulse-green 2s infinite;" data-lang="es">EN PRODUCCIÓN</span>
                     <span style="display: inline-block; background: linear-gradient(135deg, #d97706, #b45309); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; vertical-align: middle; animation: pulse-green 2s infinite;" data-lang="en">LIVE</span>
                 </h3>
-                <p data-lang="es">SaaS Personal | Noviembre 2025 — Presente</p>
-                <p data-lang="en">Personal SaaS | November 2025 — Present</p>
+                <p data-lang="es">Proyecto personal | Noviembre 2025 — 2026</p>
+                <p data-lang="en">Personal project | November 2025 — 2026</p>
                 <div class="project-meta">
                     <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">React</span>
                     <span class="project-tag" style="background: rgba(217,119,6,0.3); border: 1px solid rgba(217,119,6,0.5);">TypeScript</span>
@@ -733,6 +774,41 @@
                 </div>
             </div>
 
+            <!-- LA PINTA BURGER CLUB -->
+            <div class="bento-card bento-lapinta">
+                <div class="bento-header lapinta-grad">
+                    <span class="bento-bg-icon">🍔</span>
+                    <span class="bento-badge"><i class="fas fa-circle"></i> <span data-lang="es">EN DESARROLLO</span><span data-lang="en">IN DEVELOPMENT</span></span>
+                    <h3>La Pinta Burger Club</h3>
+                    <p data-lang="es">Sistema de gestión para bar · Mayo 2026</p>
+                    <p data-lang="en">Bar management system · May 2026</p>
+                </div>
+                <div class="bento-body">
+                    <p class="bento-desc" data-lang="es">Sistema operativo completo para bar y hamburguesería. Multi-rol con 5 niveles de acceso, flujo de pedidos en tiempo real (Socket.io), plano físico con drag &amp; drop, pantalla dedicada para cocina y dashboard de métricas con exportación a Excel.</p>
+                    <p class="bento-desc" data-lang="en">Full operational system for a burger bar. 5-role access, real-time order flow via Socket.io, drag &amp; drop floor plan, dedicated kitchen tablet screen, and metrics dashboard with Excel export.</p>
+                    <div class="bento-tags">
+                        <span class="bento-tag tag-lapinta">React 18</span><span class="bento-tag tag-lapinta">Node.js</span><span class="bento-tag tag-lapinta">PostgreSQL</span><span class="bento-tag tag-lapinta">Socket.io</span><span class="bento-tag tag-lapinta">JWT</span>
+                    </div>
+                    <div class="bento-stats">
+                        <div class="bento-stat stat-lapinta"><div class="num">5</div><div class="lbl" data-lang="es">Roles</div><div class="lbl" data-lang="en">Roles</div></div>
+                        <div class="bento-stat stat-lapinta"><div class="num">10+</div><div class="lbl" data-lang="es">Módulos</div><div class="lbl" data-lang="en">Modules</div></div>
+                        <div class="bento-stat stat-lapinta"><div class="num">RT</div><div class="lbl">Socket.io</div></div>
+                    </div>
+                    <ul class="bento-features">
+                        <li data-lang="es">Flujo mozo → caja → cocina en tiempo real</li>
+                        <li data-lang="en">Waiter → cashier → kitchen real-time flow</li>
+                        <li data-lang="es">Plano físico de mesas con drag &amp; drop</li>
+                        <li data-lang="en">Drag &amp; drop table floor plan</li>
+                        <li data-lang="es">Dashboard de métricas + exportación Excel</li>
+                        <li data-lang="en">Metrics dashboard + Excel export</li>
+                        <li data-lang="es">Auditoría y trazabilidad por empleado</li>
+                        <li data-lang="en">Per-employee audit and traceability</li>
+                    </ul>
+                    <div class="bento-links">
+                        <a href="#" class="bento-btn btn-fill-lapinta"><i class="fab fa-github"></i> <span data-lang="es">Próximamente</span><span data-lang="en">Coming soon</span></a>
+                    </div>
+                </div>
+            </div>
             <!-- BOT WHATSAPP -->
             <div class="bento-card bento-whatsapp">
                 <div class="bento-header whatsapp-grad">
@@ -910,13 +986,16 @@
         });
 
         // Lightbox
-        function openLightbox(src) {
-            document.getElementById('lightbox').classList.add('active');
+        function openLightbox(src, isQr = false) {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.toggle('qr-lightbox', isQr);
+            lightbox.classList.add('active');
             document.getElementById('lightbox-img').src = src;
             document.body.style.overflow = 'hidden';
         }
         function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active', 'qr-lightbox');
             document.body.style.overflow = 'auto';
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
@@ -931,7 +1010,7 @@
             document.getElementById('btn-en').classList.toggle('active', isEs);
             document.documentElement.lang = isEs ? 'en' : 'es';
             document.title = isEs
-                ? 'Gonzalo Pedraza | Full Stack Developer'
+                ? 'Gonzalo Pedraza | Software Development Technician and English Translator'
                 : 'Gonzalo Pedraza | Full Stack Developer';
         }
     </script>

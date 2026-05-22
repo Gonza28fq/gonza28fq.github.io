@@ -72,6 +72,16 @@
         .education-item { margin-bottom: 20px; padding: 15px; background: #f7fafc; border-radius: 6px; border-left: 3px solid #f5576c; }
         .education-degree { font-size: 16px; font-weight: 700; color: #2d3748; margin-bottom: 5px; }
         .education-school { font-size: 14px; color: #718096; }
+        .education-verify { display: flex; align-items: center; gap: 14px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .education-verify img { width: 96px; height: 96px; object-fit: contain; border-radius: 6px; background: white; padding: 4px; border: 1px solid #e2e8f0; cursor: zoom-in; }
+        .education-verify img.qr-dev { width: 150px; height: 150px; padding: 8px; }
+        .qr-modal { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15, 23, 42, 0.92); align-items: center; justify-content: center; padding: 24px; }
+        .qr-modal.active { display: flex; }
+        .qr-modal-content { position: relative; background: white; border-radius: 12px; padding: 24px; max-width: min(92vw, 680px); box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+        .qr-modal-content img { width: min(78vw, 560px); height: auto; max-height: 82vh; object-fit: contain; display: block; }
+        .qr-modal-close { position: absolute; top: -18px; right: -18px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #2d3748; color: white; font-size: 26px; cursor: pointer; line-height: 40px; }
+        @media print { .qr-modal { display: none !important; } }
+        .education-verify span { font-size: 12px; color: #4a5568; line-height: 1.4; }
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .skill-category { background: #f7fafc; padding: 15px; border-radius: 6px; border-left: 3px solid #667eea; }
         .skill-category.it-support { border-left: 3px solid #0891b2; }
@@ -103,7 +113,7 @@
                 <img class="profile-photo" src="screenshots/perfil.jpeg" alt="Gonzalo Iván Pedraza" />
                 <div class="header-text">
                     <h1>GONZALO IVÁN PEDRAZA</h1>
-                    <div class="subtitle">Full Stack Software Developer | English Translator</div>
+                    <div class="subtitle">Software Development Technician | English Translator</div>
                     <div class="contact-info">
                         <span>📍 San Miguel de Tucumán, Argentina</span>
                         <span>📧 gonza280797@hotmail.com</span>
@@ -120,7 +130,7 @@
             <div class="section">
                 <div class="section-title">Professional Profile</div>
                 <p class="profile-text">
-                    Recently graduated Full Stack Software Developer with strong technical background and advanced English proficiency. Hands-on experience delivering end-to-end solutions for real clients: <strong>TurnoLex</strong> (multi-tenant SaaS in production), <strong>NutriApp</strong> (nutrition practice management system), <strong>Car Dealership System</strong> (inventory and sales management), and payment automation bots via WhatsApp and Telegram. Proven ability to analyze requirements, design architecture, implement, and document complete software solutions. Committed to continuous learning and technical excellence. Available for remote work internationally.
+                    Software Development Technician and English Translator with strong technical background, product judgment, and advanced English proficiency. Hands-on experience delivering end-to-end solutions for real clients: <strong>TurnoLex</strong> (multi-tenant SaaS in production), <strong>NutriApp</strong> (nutrition practice management system), <strong>Car Dealership System</strong> (inventory and sales management), and payment automation bots via WhatsApp and Telegram. Proven ability to analyze requirements, design architecture, implement, and document complete software solutions. Committed to continuous learning and technical excellence. Available for remote work internationally.
                 </p>
             </div>
 
@@ -130,9 +140,9 @@
                 <!-- TURNOLEX -->
                 <div class="job turnolex">
                     <div class="job-header">
-                        <div class="job-title">TurnoLex — Appointment Management SaaS for Law Firms <span class="badge-produccion">LIVE IN PRODUCTION</span></div>
+                        <div class="job-title">TurnoLex — Appointment Management SaaS for Law Firms <span class="badge-produccion">PERSONAL PROJECT</span></div>
                         <div class="job-role turnolex-role">Full Stack Developer — Personal Project</div>
-                        <div class="job-period">February 2026 — Present | turnolex.vercel.app</div>
+                        <div class="job-period">February 2026 | turnolex.vercel.app</div>
                     </div>
                     <p class="job-description">Multi-tenant SaaS platform for Argentine law firms. Deployed to production with automated CI/CD from GitHub. Features multi-tenant architecture, three-level role system, interactive calendar, PDF generation, and transactional emails.</p>
                     <div class="deploy-row">
@@ -213,6 +223,32 @@
                     </div>
                 </div>
 
+
+                <!-- LA PINTA BURGER CLUB -->
+                <div class="job" style="border-left:4px solid #C8A96A">
+                    <div class="job-header">
+                        <div class="job-title">La Pinta Burger Club — Bar Management System <span class="badge-dev">IN DEVELOPMENT</span></div>
+                        <div class="job-role" style="color:#C8A96A">Full Stack Developer — Client Project</div>
+                        <div class="job-period">May 2026 — Present</div>
+                    </div>
+                    <p class="job-description">Full operational management system for a burger bar. Multi-role architecture with 5 access levels, real-time order flow via Socket.io, drag &amp; drop floor plan, dedicated kitchen tablet screen, and metrics dashboard with Excel export.</p>
+                    <strong style="font-size:14px;color:#C8A96A;display:block;margin:10px 0">Key responsibilities and achievements:</strong>
+                    <ul>
+                        <li>5-role system: Owner, Manager, Waiter, Cashier, and Kitchen — differentiated access and views per role</li>
+                        <li>Full order flow with Socket.io — real-time notifications between waiter, cashier, and kitchen</li>
+                        <li>Drag &amp; drop floor plan — table positions persisted in the database</li>
+                        <li>Dedicated kitchen tablet screen with large order cards and 15-min time alert</li>
+                        <li>Order form with editable prices, custom items, and load timestamp for audit control</li>
+                        <li>Cashier module with 4 payment methods — automatic table close on payment</li>
+                        <li>Metrics dashboard: top products, payment methods, waiter performance — Excel export</li>
+                        <li>Per-employee audit log with date filter — traceable orders, payments, and shifts</li>
+                        <li>Menu card HTML generator — design-branded, always up-to-date from the database</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label" style="color:#C8A96A">Tech stack:</span>
+                        <span class="tech-items">React 18 • Node.js • Express • PostgreSQL • Socket.io • JWT • React Router v6 • xlsx (Excel export)</span>
+                    </div>
+                </div>
                 <!-- BOTS -->
                 <div class="job bots">
                     <div class="job-header">
@@ -295,10 +331,12 @@
                 <div class="education-item">
                     <div class="education-degree">Associate Degree in Software Development</div>
                     <div class="education-school">Instituto 9 de Julio | San Miguel de Tucumán, Argentina | 2022 – 2024</div>
+                    <div class="education-verify"><img class="qr-dev" src="screenshots/WhatsApp Image 2026-05-21 at 20.42.52.jpeg" alt="Software Development Technician validation QR" onclick="openQrModal(this.src, this.alt)"><span>Academic validation for the Software Development Technician degree.</span></div>
                 </div>
                 <div class="education-item">
                     <div class="education-degree">English Translator</div>
                     <div class="education-school">Instituto de Ciencias Empresariales (ICE) | 2021 – 2024</div>
+                    <div class="education-verify"><img src="screenshots/2026-05-21 (1).png" alt="English Translator validation QR" onclick="openQrModal(this.src, this.alt)"><span>Academic validation for the English Translator credential.</span></div>
                 </div>
             </div>
 
@@ -385,5 +423,32 @@
 
         </div>
     </div>
+
+    <div class="qr-modal" id="qr-modal" onclick="closeQrModal()">
+        <div class="qr-modal-content" onclick="event.stopPropagation()">
+            <button class="qr-modal-close" type="button" onclick="closeQrModal()">&times;</button>
+            <img id="qr-modal-img" src="" alt="QR ampliado">
+        </div>
+    </div>
+    <script>
+        function openQrModal(src, alt) {
+            const modal = document.getElementById('qr-modal');
+            const image = document.getElementById('qr-modal-img');
+            image.src = src;
+            image.alt = alt || 'QR ampliado';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeQrModal() {
+            const modal = document.getElementById('qr-modal');
+            const image = document.getElementById('qr-modal-img');
+            modal.classList.remove('active');
+            image.src = '';
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeQrModal();
+        });
+    </script>
 </body>
 </html>
