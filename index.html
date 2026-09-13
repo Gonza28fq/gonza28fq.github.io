@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gonzalo Pedraza | Técnico Desarrollador de Software y Traductor de Inglés</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -14,8 +15,12 @@
             --dark: #1a1a2e;
             --card-bg: rgba(255,255,255,0.04);
             --border: rgba(255,255,255,0.1);
+            --text: #e5e7eb;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); scroll-behavior: smooth; background: #05070d; }
+
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; display: block; background: #05070d; }
+        footer { position: relative; z-index: 1; }
 
         /* ── LANGUAGE TOGGLE ── */
         .lang-toggle {
@@ -85,22 +90,24 @@
         .social-links a { color: white; font-size: 1.8rem; transition: transform 0.3s; }
         .social-links a:hover { transform: translateY(-5px); }
 
-        section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .section-title { font-size: 2.5rem; color: var(--dark); margin-bottom: 3rem; text-align: center; position: relative; padding-bottom: 1rem; }
+        section { max-width: 1200px; margin: 3rem auto; padding: 4rem 2rem; background: rgba(13,17,28,0.48); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.07); border-radius: 24px; box-shadow: 0 25px 70px rgba(0,0,0,0.4); }
+        section.hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border: none; }
+        .particle-breather { height: 100vh; max-width: none; background: none; backdrop-filter: none; border: none; box-shadow: none; margin: 0; padding: 0; }
+        .section-title { font-size: 2.5rem; color: #f8fafc; margin-bottom: 3rem; text-align: center; position: relative; padding-bottom: 1rem; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; }
         .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
         .about-text { font-size: 1.1rem; line-height: 1.8; }
         .about-text p { margin-bottom: 1rem; }
         .highlight { color: var(--primary); font-weight: 600; }
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .skill-category { background: var(--light); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--primary); transition: transform 0.3s, box-shadow 0.3s; }
+        .skill-category { background: rgba(255,255,255,0.04); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--primary); transition: transform 0.3s, box-shadow 0.3s; }
         .skill-category:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .skill-category h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .skill-tag { background: white; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: var(--text); border: 1px solid #e2e8f0; }
+        .skill-tag { background: rgba(255,255,255,0.08); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: var(--text); border: 1px solid rgba(255,255,255,0.15); }
         .badge-new { display: inline-block; background: linear-gradient(135deg, #10b981, #059669); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 0.5rem; vertical-align: middle; letter-spacing: 0.05em; animation: pulse-green 2s infinite; }
         @keyframes pulse-green { 0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } }
-        .project-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 3rem; transition: transform 0.3s; }
+        .project-card { background: rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.4); margin-bottom: 3rem; transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.06); }
         .project-card:hover { transform: translateY(-10px); }
         .project-header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 2rem; }
         .project-header.header-taskmanager { background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); }
@@ -131,9 +138,9 @@
         .btn-outline-purple { background: white; color: #7c3aed; border: 2px solid #7c3aed; }
         .btn-outline-purple:hover { background: #7c3aed; color: white; }
         .project-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 2rem 0; }
-        .stat-item { background: #f5f3ff; border-radius: 10px; padding: 1rem; text-align: center; border: 1px solid #ede9fe; }
-        .stat-item .stat-number { font-size: 1.8rem; font-weight: 700; color: #7c3aed; }
-        .stat-item .stat-label { font-size: 0.85rem; color: #6b7280; margin-top: 0.2rem; }
+        .stat-item { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 1rem; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        .stat-item .stat-number { font-size: 1.8rem; font-weight: 700; color: #a78bfa; }
+        .stat-item .stat-label { font-size: 0.85rem; color: #cbd5e1; margin-top: 0.2rem; }
         .contact-content { text-align: center; max-width: 600px; margin: 0 auto; }
         .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
         .contact-item { display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 1.1rem; }
@@ -153,7 +160,7 @@
         .bento-lapinta  { grid-column: 1 / 7;  grid-row: 2; }
         .bento-whatsapp  { grid-column: 7 / 13;  grid-row: 2; }
         .bento-alertas   { grid-column: 1 / 13; grid-row: 3; }
-        .bento-card { border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,0,0,0.08); background: white; }
+        .bento-card { border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,0,0,0.3); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06); }
         .bento-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.14); }
         .bento-header { padding: 1.75rem 2rem 1.5rem; position: relative; overflow: hidden; }
         .bento-bg-icon { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 4.5rem; opacity: 0.12; pointer-events: none; }
@@ -405,6 +412,7 @@
     </style>
 </head>
 <body class="lang-es">
+    <canvas id="bg-canvas"></canvas>
 
     <header>
         <nav>
@@ -413,6 +421,7 @@
                 <ul class="nav-links">
                     <li><a href="#inicio"    data-lang="es">Inicio</a>    <a href="#inicio"    data-lang="en">Home</a></li>
                     <li><a href="#sobre-mi"  data-lang="es">Sobre Mí</a>  <a href="#sobre-mi"  data-lang="en">About</a></li>
+                    <li><a href="#experiencia" data-lang="es">Experiencia</a> <a href="#experiencia" data-lang="en">Experience</a></li>
                     <li><a href="#skills"    data-lang="es">Skills</a>    <a href="#skills"    data-lang="en">Skills</a></li>
                     <li><a href="#proyectos" data-lang="es">Proyectos</a> <a href="#proyectos" data-lang="en">Projects</a></li>
                     <li><a href="#contacto"  data-lang="es">Contacto</a>  <a href="#contacto"  data-lang="en">Contact</a></li>
@@ -494,6 +503,8 @@
         </div>
     </section>
 
+    <div class="particle-breather"></div>
+
     <!-- ═══ SOBRE MÍ / ABOUT ═══ -->
     <section id="sobre-mi">
         <h2 class="section-title" data-lang="es">Sobre Mí</h2>
@@ -517,11 +528,87 @@
         </div>
     </section>
 
+    <div class="particle-breather"></div>
+
+    <!-- ═══ EXPERIENCIA ACTUAL / CURRENT EXPERIENCE ═══ -->
+    <section id="experiencia">
+        <h2 class="section-title" data-lang="es">Experiencia Actual</h2>
+        <h2 class="section-title" data-lang="en">Current Experience</h2>
+
+        <div class="project-card">
+            <div class="project-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;">
+                <div style="position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); font-size: 5rem; opacity: 0.1;"><i class="fas fa-building-columns"></i></div>
+                <h3>ARCHT
+                    <span class="badge-new" data-lang="es">TRABAJANDO ACTUALMENTE</span>
+                    <span class="badge-new" data-lang="en">CURRENTLY WORKING HERE</span>
+                </h3>
+                <p data-lang="es">Desarrollador Full Stack | 2026 — Presente</p>
+                <p data-lang="en">Full Stack Developer | 2026 — Present</p>
+                <div class="project-meta">
+                    <span class="project-tag">Genexus</span><span class="project-tag">Java</span><span class="project-tag">ExtJS</span><span class="project-tag">JavaScript</span><span class="project-tag">React</span><span class="project-tag">MySQL</span>
+                </div>
+            </div>
+            <div class="project-content">
+                <p class="project-description" data-lang="es">Trabajo en una empresa del sector financiero que desarrolla y gestiona productos financieros junto a bancos, comercializadoras e inversores, integrando además servicios de terceros. El equipo convive con sistemas más antiguos en migración constante hacia arquitecturas más modernas.</p>
+                <p class="project-description" data-lang="en">I work at a fintech company that develops and manages financial products together with banks, distributors, and investors, while integrating third-party services. The team maintains legacy systems in constant migration toward more modern architectures.</p>
+
+                <div class="project-features">
+                    <h4 data-lang="es">Tareas y responsabilidades:</h4>
+                    <h4 data-lang="en">Tasks and responsibilities:</h4>
+                    <ul>
+                        <li data-lang="es">Mecanismo de baja y restauración de trámites con recorrido de jerarquías vía BFS, tablas temporales, transaccionalidad completa y auditoría</li>
+                        <li data-lang="en">Trámite deletion/restoration mechanism using BFS hierarchy traversal, temporary tables, full transactionality, and audit logging</li>
+                        <li data-lang="es">Orquestación de un modelo de lenguaje (LLM) para diagnóstico asistido de trámites, con contexto curado, preguntas predefinidas validadas del lado del servidor y manejo diferenciado de errores</li>
+                        <li data-lang="en">Orchestration of an LLM-based diagnostic flow, with curated context, server-validated predefined questions, and differentiated error handling</li>
+                        <li data-lang="es">Migración de pantallas legacy hacia una arquitectura de microservicios sobre un framework moderno de Java</li>
+                        <li data-lang="en">Migration of legacy screens to a microservices architecture on a modern Java framework</li>
+                        <li data-lang="es">Trabajo colaborativo en la modernización de arquitectura interna: migración hacia capas de controladores, servicios y entidades</li>
+                        <li data-lang="en">Collaborative work modernizing internal architecture: migration toward controller/service/entity layers</li>
+                        <li data-lang="es">Pantallas a medida para altas de domicilio y contacto, consumiendo APIs existentes del sistema</li>
+                        <li data-lang="en">Custom screens for address and contact management, consuming existing system APIs</li>
+                        <li data-lang="es">Actualmente: procesos de solicitud de productos financieros — validación de padrones oficiales, listas PEP, datos bancarios, firma digital y prueba de vida biométrica</li>
+                        <li data-lang="en">Currently: financial product application processes — official registry validation, PEP lists, bank data, digital signature, and biometric liveness checks</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.75rem 2rem; border-radius: 16px; background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08)); border: 2px solid var(--primary); position: relative;">
+                    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem;">
+                        <i class="fas fa-brain" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        <strong style="color: var(--primary); font-size: 1.05rem;" data-lang="es">En foco: formación en LLMs y Agentes de IA</strong>
+                        <strong style="color: var(--primary); font-size: 1.05rem;" data-lang="en">Current focus: LLMs and AI Agents specialization</strong>
+                    </div>
+                    <p data-lang="es" style="margin:0;">A partir de mi trabajo orquestando modelos de lenguaje en un entorno productivo, decidí profundizar activamente en la <span class="highlight">incorporación de LLMs y agentes de IA</span> a sistemas reales: diseño de contexto, seguridad, control de costos por token, y arquitecturas de agentes con herramientas. Es, hoy, mi eje de aprendizaje prioritario.</p>
+                    <p data-lang="en" style="margin:0;">Following my work orchestrating language models in a production environment, I've been actively deepening my focus on <span class="highlight">integrating LLMs and AI agents</span> into real systems: context design, security, per-token cost control, and tool-using agent architectures. This is currently my top learning priority.</p>
+                </div>
+
+                <div class="project-links" style="margin-top: 2rem;">
+                    <a href="https://www.archt.com.ar/" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span data-lang="es">Sitio de la empresa</span><span data-lang="en">Company site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="particle-breather"></div>
+
     <!-- ═══ SKILLS ═══ -->
     <section id="skills">
         <h2 class="section-title" data-lang="es">Stack Técnico</h2>
         <h2 class="section-title" data-lang="en">Technical Stack</h2>
         <div class="skills-grid">
+            <div class="skill-category" style="border-left: 4px solid #f093fb; background: linear-gradient(135deg, rgba(240,147,251,0.06), rgba(102,126,234,0.06)); position: relative;">
+                <h3 style="color: #b8299e;">
+                    <i class="fas fa-brain"></i>
+                    <span data-lang="es">IA & LLMs</span><span data-lang="en">AI & LLMs</span>
+                    <span class="badge-new" data-lang="es">EN FOCO</span>
+                    <span class="badge-new" data-lang="en">FOCUS</span>
+                </h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Prompt Engineering</span><span class="skill-tag">Anthropic API</span><span class="skill-tag">OpenAI API</span><span class="skill-tag" data-lang="es">Orquestación de LLMs</span><span class="skill-tag" data-lang="en">LLM Orchestration</span><span class="skill-tag" data-lang="es">Agentes de IA</span><span class="skill-tag" data-lang="en">AI Agents</span>
+                </div>
+            </div>
             <div class="skill-category">
                 <h3><i class="fas fa-code"></i> Frontend</h3>
                 <div class="skill-tags">
@@ -531,7 +618,7 @@
             <div class="skill-category">
                 <h3><i class="fas fa-server"></i> Backend</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">PHP</span><span class="skill-tag">API REST</span><span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">PHP</span><span class="skill-tag">API REST</span><span class="skill-tag">Python</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -543,7 +630,7 @@
             <div class="skill-category">
                 <h3><i class="fas fa-tools"></i> <span data-lang="es">Herramientas</span><span data-lang="en">Tools</span></h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Git/GitHub</span><span class="skill-tag">Vercel</span><span class="skill-tag">Railway</span><span class="skill-tag">Vite</span><span class="skill-tag">npm</span>
+                    <span class="skill-tag">Git/GitHub</span><span class="skill-tag">Vercel</span><span class="skill-tag">Railway</span><span class="skill-tag">Vite</span><span class="skill-tag">npm</span><span class="skill-tag">IntelliJ IDEA</span><span class="skill-tag">Eclipse</span><span class="skill-tag">Navicat</span><span class="skill-tag">Postman</span><span class="skill-tag">Google IDX</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -569,10 +656,12 @@
         </div>
     </section>
 
+    <div class="particle-breather"></div>
+
     <!-- ═══ PROYECTOS / PROJECTS ═══ -->
     <section id="proyectos">
-        <h2 class="section-title" data-lang="es">Proyectos Destacados</h2>
-        <h2 class="section-title" data-lang="en">Featured Projects</h2>
+        <h2 class="section-title" data-lang="es">Proyectos Personales</h2>
+        <h2 class="section-title" data-lang="en">Personal Projects</h2>
 
         <!-- TURNOLEX -->
         <div class="project-card">
@@ -944,6 +1033,8 @@
         </div>
     </section>
 
+    <div class="particle-breather"></div>
+
     <!-- ═══ CONTACTO / CONTACT ═══ -->
     <section id="contacto">
         <h2 class="section-title" data-lang="es">Contacto</h2>
@@ -1005,6 +1096,212 @@
             document.body.style.overflow = 'auto';
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+        // ══ FONDO DE PARTÍCULAS ══
+        (function () {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Declaramos TODO el estado compartido primero, ya inicializado, para que
+            // ningún error posterior (p. ej. un canvas con tamaño 0 durante el primer
+            // render) deje variables en un estado a medio inicializar.
+            let W = 0, H = 0;
+            let particles = [];
+            let shapes = [];
+            let keyframes = [];
+            let mouse = { x: -9999, y: -9999 };
+            let ready = false;
+
+            function resize() {
+                W = canvas.width = Math.max(window.innerWidth, 1);
+                H = canvas.height = Math.max(window.innerHeight, 1);
+            }
+
+            function sampleFromOffscreen(drawFn, n) {
+                if (W < 2 || H < 2) return Array.from({ length: n }, () => ({ x: W / 2, y: H / 2 }));
+                const off = document.createElement('canvas');
+                off.width = W; off.height = H;
+                const octx = off.getContext('2d');
+                drawFn(octx);
+                let data;
+                try {
+                    data = octx.getImageData(0, 0, W, H).data;
+                } catch (e) {
+                    return Array.from({ length: n }, () => ({ x: W / 2, y: H / 2 }));
+                }
+                const candidates = [];
+                const step = 3;
+                for (let y = 0; y < H; y += step) {
+                    for (let x = 0; x < W; x += step) {
+                        if (data[(y * W + x) * 4 + 3] > 100) candidates.push({ x, y });
+                    }
+                }
+                const pts = [];
+                for (let i = 0; i < n; i++) {
+                    if (!candidates.length) { pts.push({ x: W / 2, y: H / 2 }); continue; }
+                    const c = candidates[Math.floor(Math.random() * candidates.length)];
+                    pts.push({ x: c.x + (Math.random() - 0.5) * 2, y: c.y + (Math.random() - 0.5) * 2 });
+                }
+                return pts;
+            }
+
+            function shapeGalaxy(n) {
+                const pts = [];
+                for (let i = 0; i < n; i++) {
+                    const t = i / n;
+                    const arm = i % 3;
+                    const angle = t * Math.PI * 6 + (arm * (Math.PI * 2 / 3));
+                    const radius = t * Math.min(W, H) * 0.42 * (0.3 + Math.random() * 0.7);
+                    pts.push({ x: W / 2 + Math.cos(angle) * radius, y: H / 2 + Math.sin(angle) * radius * 0.6 });
+                }
+                return pts;
+            }
+
+            function drawWhiteTree(octx) {
+                octx.strokeStyle = '#fff'; octx.fillStyle = '#fff'; octx.lineCap = 'round';
+                const baseX = W / 2, baseY = H * 0.82, trunkHeight = Math.min(W, H) * 0.28;
+                function branch(x, y, len, angle, width, depth) {
+                    if (depth === 0 || len < 4) {
+                        octx.beginPath(); octx.arc(x, y, Math.random() * 3 + 1.5, 0, Math.PI * 2); octx.fill();
+                        return;
+                    }
+                    const x2 = x + Math.cos(angle) * len, y2 = y + Math.sin(angle) * len;
+                    octx.lineWidth = width;
+                    octx.beginPath(); octx.moveTo(x, y); octx.lineTo(x2, y2); octx.stroke();
+                    const branches = depth > 5 ? 2 : (Math.random() > 0.5 ? 2 : 3);
+                    for (let i = 0; i < branches; i++) {
+                        const spread = 0.35 + Math.random() * 0.4;
+                        const newAngle = angle + (i - (branches - 1) / 2) * spread + (Math.random() - 0.5) * 0.2;
+                        branch(x2, y2, len * (0.72 + Math.random() * 0.1), newAngle, Math.max(width * 0.68, 1), depth - 1);
+                    }
+                }
+                octx.lineWidth = 14;
+                octx.beginPath(); octx.moveTo(baseX, baseY); octx.lineTo(baseX, baseY - trunkHeight); octx.stroke();
+                branch(baseX, baseY - trunkHeight, trunkHeight * 0.55, -Math.PI / 2 - 0.3, 10, 9);
+                branch(baseX, baseY - trunkHeight, trunkHeight * 0.55, -Math.PI / 2 + 0.3, 10, 9);
+                branch(baseX, baseY - trunkHeight, trunkHeight * 0.6, -Math.PI / 2, 11, 9);
+            }
+
+            function shapeFromText(text, n, fontSize) {
+                return sampleFromOffscreen((octx) => {
+                    octx.fillStyle = '#fff';
+                    octx.font = `bold ${Math.max(fontSize, 1)}px Segoe UI, sans-serif`;
+                    octx.textAlign = 'center'; octx.textBaseline = 'middle';
+                    octx.fillText(text, W / 2, H / 2);
+                }, n);
+            }
+
+            const COUNT = window.innerWidth < 768 ? 700 : 1300;
+
+            function buildShapes() {
+                shapes = [
+                    shapeGalaxy(COUNT),
+                    sampleFromOffscreen(drawWhiteTree, COUNT),
+                    shapeFromText('G P', COUNT, Math.min(W, H) * 0.32),
+                    shapeFromText('</>', COUNT, Math.min(W, H) * 0.28)
+                ];
+            }
+
+            // Las figuras quedan fijas mientras dura cada ".particle-breather" (respiro sin
+            // contenido), y se van morfeando entre una forma y la siguiente a lo largo del
+            // scroll de la sección de contenido que las separa.
+            function buildKeyframes() {
+                const breathers = Array.from(document.querySelectorAll('.particle-breather'));
+                const kfs = [{ pos: 0, shape: 0 }];
+                breathers.forEach((b, i) => {
+                    const shapeIdx = i % shapes.length;
+                    const top = b.offsetTop;
+                    const bottom = top + b.offsetHeight;
+                    kfs.push({ pos: top, shape: shapeIdx });
+                    kfs.push({ pos: bottom, shape: shapeIdx });
+                });
+                const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, kfs[kfs.length - 1].pos);
+                kfs.push({ pos: maxScroll, shape: kfs[kfs.length - 1].shape });
+                keyframes = kfs;
+            }
+
+            function getInterpolatedTarget(i) {
+                if (keyframes.length < 2 || !shapes.length) return { x: W / 2, y: H / 2 };
+                const scrollY = window.scrollY;
+                let j = 0;
+                while (j < keyframes.length - 2 && scrollY >= keyframes[j + 1].pos) j++;
+                const kfA = keyframes[j], kfB = keyframes[j + 1];
+                const span = kfB.pos - kfA.pos;
+                const t = span > 0 ? Math.min(1, Math.max(0, (scrollY - kfA.pos) / span)) : 1;
+                const a = shapes[kfA.shape][i], b = shapes[kfB.shape][i];
+                if (!a || !b) return { x: W / 2, y: H / 2 };
+                return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+            }
+
+            const inscription = 'ONE LINE TO RULE THEM ALL';
+            function drawInscription() {
+                const cx = W / 2, cy = H / 2;
+                const dx = mouse.x - cx, dy = mouse.y - cy;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const revealRadius = 260;
+                const proximity = Math.max(0, 1 - dist / revealRadius);
+                const alpha = 0.05 + proximity * 0.8;
+                ctx.save();
+                ctx.font = `600 ${Math.max(Math.min(W, H) * 0.024, 1)}px Cinzel, Georgia, serif`;
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                ctx.letterSpacing = '6px';
+                ctx.shadowColor = `rgba(255,170,60,${proximity})`;
+                ctx.shadowBlur = 25 * proximity;
+                ctx.fillStyle = `rgba(255, 195, 110, ${alpha})`;
+                ctx.fillText(inscription, cx, cy);
+                ctx.restore();
+            }
+
+            function init() {
+                resize();
+                if (W < 2 || H < 2) {
+                    // El contenedor todavía no tiene tamaño real (por ejemplo dentro de un
+                    // iframe de previsualización). Reintentamos en el próximo frame.
+                    requestAnimationFrame(init);
+                    return;
+                }
+                buildShapes();
+                particles = Array.from({ length: COUNT }, () => (
+                    { x: Math.random() * W, y: Math.random() * H, size: Math.random() * 1.6 + 0.5, hue: 205 + Math.random() * 40 }
+                ));
+                buildKeyframes();
+                ready = true;
+                animate();
+            }
+
+            window.addEventListener('resize', () => { resize(); buildShapes(); buildKeyframes(); });
+            window.addEventListener('load', buildKeyframes);
+            window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+            window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+            function animate() {
+                ctx.fillStyle = 'rgba(5,7,13,0.22)';
+                ctx.fillRect(0, 0, W, H);
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const target = getInterpolatedTarget(i);
+                    p.x += (target.x - p.x) * 0.05;
+                    p.y += (target.y - p.y) * 0.05;
+                    const dx = p.x - mouse.x, dy = p.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const repelRadius = 110;
+                    if (dist < repelRadius) {
+                        const force = (repelRadius - dist) / repelRadius;
+                        const angle = Math.atan2(dy, dx);
+                        p.x += Math.cos(angle) * force * 7;
+                        p.y += Math.sin(angle) * force * 7;
+                    }
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${p.hue}, 70%, 78%, 0.85)`;
+                    ctx.fill();
+                }
+                drawInscription();
+                requestAnimationFrame(animate);
+            }
+
+            init();
+        })();
 
         // Language toggle
         function toggleLang() {
