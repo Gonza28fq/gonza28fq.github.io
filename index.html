@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gonzalo Pedraza | Técnico Desarrollador de Software y Traductor de Inglés</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -1233,22 +1233,56 @@
                 return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
             }
 
-            const inscription = 'ONE LINE TO RULE THEM ALL';
+            const inscription = 'We can only see a little of the immediate future, but we can see that there is much to be done.';
+            const inscriptionAuthor = 'ALAN TURING';
+
+            function wrapText(text, maxWidth) {
+                const words = text.split(' ');
+                const lines = [];
+                let current = '';
+                for (const w of words) {
+                    const test = current ? current + ' ' + w : w;
+                    if (ctx.measureText(test).width > maxWidth && current) {
+                        lines.push(current);
+                        current = w;
+                    } else {
+                        current = test;
+                    }
+                }
+                if (current) lines.push(current);
+                return lines;
+            }
+
             function drawInscription() {
                 const cx = W / 2, cy = H / 2;
                 const dx = mouse.x - cx, dy = mouse.y - cy;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                const revealRadius = 260;
+                const revealRadius = 320;
                 const proximity = Math.max(0, 1 - dist / revealRadius);
                 const alpha = 0.05 + proximity * 0.8;
+
                 ctx.save();
-                ctx.font = `600 ${Math.max(Math.min(W, H) * 0.024, 1)}px Cinzel, Georgia, serif`;
-                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-                ctx.letterSpacing = '6px';
+                const quoteSize = Math.max(Math.min(W, H) * 0.024, 13);
+                ctx.font = `italic 500 ${quoteSize}px 'Cormorant Garamond', Georgia, serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                const maxWidth = Math.min(W * 0.62, 760);
+                const lines = wrapText('"' + inscription + '"', maxWidth);
+                const lineHeight = quoteSize * 1.45;
+                const authorGap = quoteSize * 1.1;
+                const totalHeight = lines.length * lineHeight + authorGap;
+                const startY = cy - totalHeight / 2 + lineHeight / 2;
+
                 ctx.shadowColor = `rgba(255,170,60,${proximity})`;
-                ctx.shadowBlur = 25 * proximity;
-                ctx.fillStyle = `rgba(255, 195, 110, ${alpha})`;
-                ctx.fillText(inscription, cx, cy);
+                ctx.shadowBlur = 22 * proximity;
+                ctx.fillStyle = `rgba(255, 210, 150, ${alpha})`;
+                lines.forEach((line, i) => ctx.fillText(line, cx, startY + i * lineHeight));
+
+                ctx.font = `600 ${quoteSize * 0.5}px Cinzel, Georgia, serif`;
+                ctx.letterSpacing = '4px';
+                ctx.fillStyle = `rgba(255, 210, 150, ${alpha * 0.85})`;
+                ctx.fillText('— ' + inscriptionAuthor, cx, startY + (lines.length - 1) * lineHeight + authorGap);
                 ctx.restore();
             }
 
