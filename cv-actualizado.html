@@ -30,6 +30,16 @@
         .job.nutriapp { border-left: 4px solid #059669; }
         .job.concesionaria { border-left: 4px solid #1e40af; }
         .job.bots { border-left: 4px solid #0891b2; }
+        .job.archt { border-left: 4px solid #0f172a; }
+        .job-role.archt-role { color: #0f172a; }
+        .job.archt li::marker { color: #0f172a; }
+        .tech-label.archt { color: #0f172a; }
+        .badge-actual { display: inline-block; background: linear-gradient(135deg, #059669, #047857); color: white; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .badge-focus { display: inline-block; background: linear-gradient(135deg, #f093fb, #b8299e); color: white; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .focus-note { background: linear-gradient(135deg, rgba(240,147,251,0.1), rgba(102,126,234,0.1)); border: 2px solid #b8299e; border-radius: 8px; padding: 14px 18px; margin-top: 12px; font-size: 13px; color: #4a5568; }
+        .focus-note strong { color: #b8299e; }
+        .skill-category.ai-focus { border-left: 3px solid #b8299e; background: linear-gradient(135deg, rgba(240,147,251,0.06), rgba(102,126,234,0.06)); }
+        .skill-title.ai-focus { color: #b8299e; }
         .job-header { margin-bottom: 15px; }
         .job-title { font-size: 17px; font-weight: 700; color: #2d3748; margin-bottom: 5px; }
         .job-role { font-size: 15px; color: #667eea; font-style: italic; font-weight: 600; }
@@ -132,8 +142,39 @@
             <div class="section">
                 <div class="section-title">Perfil Profesional</div>
                 <p class="profile-text">
-                    Técnico Desarrollador de Software y Traductor de Inglés, con sólida formación técnica, criterio de producto y dominio avanzado de inglés técnico. Experiencia en desarrollo full stack mediante proyectos complejos: <strong>TurnoLex</strong> (SaaS multi-tenant en producción), <strong>NutriApp</strong> (sistema de gestión para nutricionistas), <strong>Sistema para Concesionaria</strong> (gestión de stock y ventas), y bots de automatización de cobros con WhatsApp y Telegram. Capacidad demostrada para análisis, diseño, implementación y documentación de soluciones end-to-end. Comprometido con el aprendizaje continuo y la excelencia técnica.
+                    Técnico Desarrollador de Software y Traductor de Inglés, con sólida formación técnica, criterio de producto y dominio avanzado de inglés técnico. Actualmente formo parte del equipo de desarrollo de <strong>ARCHT</strong>, una empresa del sector financiero, donde trabajo en migración de arquitecturas, orquestación de modelos de lenguaje (LLM) y procesos de solicitud de productos financieros. En paralelo, sostengo proyectos personales de desarrollo full stack: <strong>TurnoLex</strong> (SaaS multi-tenant en producción), <strong>NutriApp</strong> (sistema de gestión para nutricionistas), <strong>Sistema para Concesionaria</strong> (gestión de stock y ventas), y bots de automatización de cobros con WhatsApp y Telegram. Capacidad demostrada para análisis, diseño, implementación y documentación de soluciones end-to-end. Comprometido con el aprendizaje continuo y, en particular, con la incorporación responsable de LLMs y agentes de IA a sistemas productivos.
                 </p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Experiencia Profesional</div>
+
+                <!-- ARCHT -->
+                <div class="job archt">
+                    <div class="job-header">
+                        <div class="job-title">ARCHT <span class="badge-actual">TRABAJANDO ACTUALMENTE</span></div>
+                        <div class="job-role archt-role">Desarrollador Full Stack</div>
+                        <div class="job-period">2026 — Presente</div>
+                    </div>
+                    <p class="job-description">Empresa del sector financiero que desarrolla y gestiona productos financieros junto a bancos, comercializadoras e inversores, integrando además servicios de terceros. El equipo convive con sistemas legacy en migración constante hacia arquitecturas más modernas.</p>
+                    <strong style="font-size:14px;color:#0f172a;display:block;margin:10px 0;">Responsabilidades y logros clave:</strong>
+                    <ul>
+                        <li>Mecanismo de baja y restauración de trámites con recorrido de jerarquías vía BFS, tablas temporales, transaccionalidad completa y auditoría</li>
+                        <li>Orquestación de un modelo de lenguaje (LLM) para diagnóstico asistido de trámites, con contexto curado, preguntas predefinidas validadas del lado del servidor y manejo diferenciado de errores</li>
+                        <li>Migración de pantallas legacy hacia una arquitectura de microservicios sobre un framework moderno de Java</li>
+                        <li>Trabajo colaborativo en la modernización de arquitectura interna: migración hacia capas de controladores, servicios y entidades</li>
+                        <li>Pantallas a medida para altas de domicilio y contacto, consumiendo APIs existentes del sistema</li>
+                        <li>Actualmente: procesos de solicitud de productos financieros — validación de padrones oficiales, listas PEP, datos bancarios, firma digital y prueba de vida biométrica</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-label archt">Stack tecnológico:</span>
+                        <span class="tech-items">Genexus • Java • ExtJS • JavaScript • React • MySQL</span>
+                    </div>
+                    <div class="focus-note">
+                        <strong>En foco: <span class="badge-focus">LLMs & Agentes de IA</span></strong><br>
+                        A partir de mi trabajo orquestando modelos de lenguaje en un entorno productivo, decidí profundizar activamente en la incorporación de LLMs y agentes de IA a sistemas reales: diseño de contexto, seguridad, control de costos por token y arquitecturas de agentes con herramientas.
+                    </div>
+                </div>
             </div>
 
             <div class="section">
@@ -345,9 +386,13 @@
             <div class="section">
                 <div class="section-title">Habilidades Técnicas</div>
                 <div class="skills-grid">
+                    <div class="skill-category ai-focus">
+                        <div class="skill-title ai-focus">IA & LLMs <span class="badge-focus">EN FOCO</span></div>
+                        <div class="skill-items">Prompt Engineering • Anthropic API • OpenAI API • Orquestación de LLMs • Agentes de IA</div>
+                    </div>
                     <div class="skill-category">
                         <div class="skill-title">Lenguajes</div>
-                        <div class="skill-items">JavaScript/TypeScript • PHP • Python • C# • HTML5 • CSS3 • SQL</div>
+                        <div class="skill-items">JavaScript/TypeScript • PHP • Python • C# • Java • HTML5 • CSS3 • SQL</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Frontend</div>
@@ -355,7 +400,7 @@
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Backend</div>
-                        <div class="skill-items">Node.js • Express • PHP • API REST • JWT • Nodemailer • PDFKit • jsPDF • SheetJS • Multer • Helmet • express-rate-limit</div>
+                        <div class="skill-items">Java • Node.js • Express • PHP • API REST • JWT • Nodemailer • PDFKit • jsPDF • SheetJS • Multer • Helmet • express-rate-limit</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Bases de Datos</div>
@@ -364,6 +409,10 @@
                     <div class="skill-category">
                         <div class="skill-title">Deploy & Cloud</div>
                         <div class="skill-items">Vercel • Railway • MongoDB Atlas • Cloudinary • GitHub CI/CD</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Herramientas</div>
+                        <div class="skill-items">IntelliJ IDEA • Eclipse • Navicat • Postman • Google IDX • Git/GitHub</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Seguridad</div>
