@@ -52,7 +52,7 @@
         }
         .lang-flag { font-size: 1rem; line-height: 1; }
 
-        header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header { background: rgba(10,13,22,0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); color: white; padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
         .logo { font-size: 1.5rem; font-weight: 700; }
         .nav-right { display: flex; align-items: center; gap: 2rem; }
@@ -1159,7 +1159,7 @@
 
             function drawWhiteTree(octx) {
                 octx.strokeStyle = '#fff'; octx.fillStyle = '#fff'; octx.lineCap = 'round';
-                const baseX = W / 2, baseY = H * 0.82, trunkHeight = Math.min(W, H) * 0.28;
+                const baseX = W / 2, baseY = H * 0.92, trunkHeight = Math.min(W, H) * 0.22;
                 function branch(x, y, len, angle, width, depth) {
                     if (depth === 0 || len < 4) {
                         octx.beginPath(); octx.arc(x, y, Math.random() * 3 + 1.5, 0, Math.PI * 2); octx.fill();
@@ -1233,7 +1233,7 @@
                 return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
             }
 
-            const inscription = '"We can only see a little of the immediate future, but we can see that there is much to be done." - Alan Turing';
+            const inscription = 'ONE LINE TO RULE THEM ALL';
             function drawInscription() {
                 const cx = W / 2, cy = H / 2;
                 const dx = mouse.x - cx, dy = mouse.y - cy;
