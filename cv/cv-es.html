@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gonzalo Iván Pedraza — CV</title>
+  <meta name="author" content="Gonzalo Iván Pedraza">
+  <meta name="description" content="Desarrollador de software · Backend e IA aplicada · Traductor de inglés">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+<main class="sheet">
+
+  <header class="head">
+    <div>
+      <h1 class="head__name">Gonzalo Iván<br><em>Pedraza.</em></h1>
+      <p class="head__role">Desarrollador de software · Backend e IA aplicada · Traductor de inglés</p>
+      <p class="contact">
+        <span>San Miguel de Tucumán, Argentina</span>
+        <span><a href="mailto:gonza280797@hotmail.com">gonza280797@hotmail.com</a></span>
+        <span><a href="tel:+5493815958981">+54 381 595 8981</a></span>
+      </p>
+      <p class="contact">
+        <span><a href="https://gonza28fq.github.io">gonza28fq.github.io</a></span>
+        <span><a href="https://www.linkedin.com/in/gonzalo-pedraza-b8b568298">linkedin.com/in/gonzalo-pedraza-b8b568298</a></span>
+        <span><a href="https://github.com/Gonza28fq">github.com/Gonza28fq</a></span>
+      </p>
+    </div>
+    <img class="head__photo" src="../assets/img/perfil.jpg" alt="Gonzalo Iván Pedraza">
+  </header>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>01</span>Perfil</h2>
+    <div>
+      <p class="lead">Desarrollador backend con foco en IA aplicada. En Arch-t construyo en Java 17 servicios para una plataforma de workflow de créditos multiempresa; este año llevé un asistente de diagnóstico de un pipeline de una sola llamada a un <b>agente con 16 herramientas de solo lectura</b> y bajé su costo por consulta un <span class="metric">94%</span>.</p>
+      <p class="lead">Fuera del trabajo diseño, entrego y mantengo sistemas para negocios reales: una hamburguesería, una nutricionista, una concesionaria y comercios que cobran con Mercado Pago. Me importa entender el problema antes que el código, medir antes de afirmar y hacerme cargo de lo que entrego. Como traductor, convierto lo técnico en lenguaje de negocio.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>02</span>Experiencia</h2>
+    <div>
+      <article class="entry">
+        <div class="entry__top">
+          <h3 class="entry__title">Arch-t <small>Desarrollador backend Java</small></h3>
+          <span class="entry__date">2026 — actualidad</span>
+        </div>
+        <p class="entry__ctx">Software factory. Plataforma de workflow para originar créditos y gestionar trámites que atiende a varias empresas a la vez: entidades financieras, una universidad y mutuales.</p>
+
+        <p class="sub">IA aplicada · de pipeline a agente</p>
+        <ul class="bul">
+          <li>Diseñé y evolucioné un asistente que explica en lenguaje de negocio por qué falló un trámite, quién debe actuar y qué hacer. Pasó de catálogos + una llamada al modelo a un <b>agente con function calling y 16 herramientas de solo lectura</b>, con control por empresa, lista blanca de tablas, enmascarado de datos personales y topes de vueltas.</li>
+          <li>Bajé el costo por consulta un <span class="metric">94%</span> y el tiempo de respuesta un <span class="metric">42%</span> con caché incremental, compactación de salidas y elección de modelo por costo. Lo validé con una evaluación de respuesta conocida (errores reales y fallas inyectadas a propósito).</li>
+          <li>Reescribí el motor de reglas del workflow y lo medí contra 361 trámites reales: <span class="metric">−81%</span> de falsos positivos. Agregué una memoria compartida por trámite con bloqueo optimista y un contexto de tamaño fijo, así el costo por pregunta no crece con la conversación.</li>
+        </ul>
+
+        <p class="sub">Backend, integraciones y producción</p>
+        <ul class="bul">
+          <li>API de facturación electrónica por lotes contra ARCA (SOAP, conciliación automática, idempotencia): un volumen real de comprobantes pasó de ~29 minutos a 85 segundos (<span class="metric">−95%</span>), con <span class="metric">−92%</span> de consultas a la base por lote.</li>
+          <li>Diagnostiqué y corregí en <span class="metric">menos de 24 h</span> una condición de carrera en producción que marcaba como firmados contratos sin firmar, cubriendo los tres puntos de entrada afectados.</li>
+          <li>Proceso omnicanal (web + WhatsApp + firma electrónica) para una tarjeta provincial: 120 tareas en 7 procesos, motor de reglas configurable por datos y pantallas React genéricas que luego se reutilizaron en otro cliente.</li>
+          <li>Herramienta para exportar, importar y revertir la configuración completa de una empresa entre servidores, con una foto de auditoría de 33 tablas.</li>
+          <li>Migración de ~45 endpoints a una arquitectura en capas y de 3 servicios satélite a Java 17 con HikariCP (400/400 consultas concurrentes sin errores). Integraciones con la Central de Deudores del BCRA y validación de CBU.</li>
+          <li>Subagente revisor de código para Claude Code con permisos de solo lectura y manual de reglas versionado: <span class="metric">−14%</span> de tokens y <span class="metric">−20%</span> de tiempo en el piloto.</li>
+        </ul>
+        <p class="stack"><b>Stack:</b> Java 17 · JAX-RS · MySQL · HikariCP · SOAP/REST · React · TypeScript · MUI · OpenAI y Anthropic API · Claude Code · Git</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>03</span>Proyectos</h2>
+    <div class="grid2">
+      <article class="card">
+        <div class="entry__top"><h3 class="entry__title">TurnoLex</h3><span class="entry__date">2025 — 2026</span></div>
+        <p class="entry__meta">SaaS multi-tenant de turnos para estudios jurídicos · <a href="https://turnolex.vercel.app">turnolex.vercel.app</a></p>
+        <ul class="bul">
+          <li>Datos aislados por estudio, 3 roles con guards de navegación y panel de superadmin.</li>
+          <li>Calendario interactivo, comprobantes PDF, emails transaccionales y CI/CD a Railway y Vercel.</li>
+        </ul>
+        <p class="stack">React · TypeScript · Node.js · MongoDB · JWT</p>
+      </article>
+      <article class="card">
+        <div class="entry__top"><h3 class="entry__title">La Pinta Burger Club</h3><span class="entry__date">2026</span></div>
+        <p class="entry__meta">Sistema operativo de un bar · <a href="https://la-pinta-delta.vercel.app">la-pinta-delta.vercel.app</a></p>
+        <ul class="bul">
+          <li>Mozo → caja → cocina y barra en tiempo real con Socket.io; 6 roles y plano de mesas con drag &amp; drop.</li>
+          <li>Recibos imprimibles, auditoría por empleado y métricas por jornada operativa.</li>
+        </ul>
+        <p class="stack">React 18 · Node.js · PostgreSQL · Socket.io</p>
+      </article>
+      <article class="card">
+        <div class="entry__top"><h3 class="entry__title">NutriApp</h3><span class="entry__date">2026</span></div>
+        <p class="entry__meta">Panel y sitio público para una nutricionista · <a href="https://nutriapp-bay.vercel.app">nutriapp-bay.vercel.app</a></p>
+        <ul class="bul">
+          <li>Pacientes, turnos multi-sede, antropometría y planes semanales con macros en PDF/Excel.</li>
+          <li>Rate limiting, Helmet, validación con Zod y express-validator; 6 temas configurables.</li>
+        </ul>
+        <p class="stack">React · TypeScript · Node.js · MySQL · Recharts</p>
+      </article>
+      <article class="card">
+        <div class="entry__top"><h3 class="entry__title">Automatizaciones de cobros</h3><span class="entry__date">2026</span></div>
+        <p class="entry__meta">Dos bots entregados a comercios · <a href="https://github.com/Gonza28fq">github.com/Gonza28fq</a></p>
+        <ul class="bul">
+          <li>WhatsApp + Twilio: confirma en segundos si una transferencia impactó en Mercado Pago, con lenguaje natural y solo lectura.</li>
+          <li>Telegram: alertas multi-sucursal de Mercado Pago (webhook firmado) y Brubank (MacroDroid), con roles y reportes.</li>
+        </ul>
+        <p class="stack">Python · FastAPI · Twilio · Telegram · Mercado Pago</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>04</span>Formación</h2>
+    <div class="grid2">
+      <article class="entry">
+        <div class="entry__top"><h3 class="entry__title" style="font-size:12pt">Técnico Universitario en Desarrollo de Software</h3><span class="entry__date">2022 — 2024</span></div>
+        <p class="entry__meta">Instituto 9 de Julio · San Miguel de Tucumán. Tesis: sistema de gestión comercial de 7 módulos, con 240 páginas de documentación técnica.</p>
+      </article>
+      <article class="entry">
+        <div class="entry__top"><h3 class="entry__title" style="font-size:12pt">Traductor de Inglés</h3><span class="entry__date">2021 — 2024</span></div>
+        <p class="entry__meta">Instituto de Ciencias Empresariales (ICE). Inglés técnico avanzado, escrito y oral.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>05</span>Certificaciones</h2>
+    <div>
+      <p><b>Claude Academy · Anthropic</b> — 8 cursos, verificables en <span class="verify">gonza28fq.github.io/#certificaciones</span></p>
+      <ul class="certs">
+        <li>Claude Code in Action</li>
+        <li>Building with the Claude API</li>
+        <li>Model Context Protocol: Advanced Topics</li>
+        <li>Introduction to Model Context Protocol</li>
+        <li>Building Effective Human-Agent Teams</li>
+        <li>Claude Code 101</li>
+        <li>AI Fluency: Framework &amp; Foundations</li>
+        <li>Claude 101</li>
+      </ul>
+      <p style="margin-top:1.6mm"><b>freeCodeCamp</b> — JavaScript Algorithms and Data Structures (2025)</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>06</span>Habilidades</h2>
+    <dl class="kv">
+      <dt>IA aplicada</dt><dd>Function calling · structured outputs · prompt caching · evals · guardrails · enmascarado de datos · MCP · Claude Code (subagentes, permisos)</dd>
+      <dt>Backend</dt><dd>Java 17 · JAX-RS · Node.js · Express · Python · FastAPI · PHP · SOAP / REST · JWT</dd>
+      <dt>Datos</dt><dd>MySQL · PostgreSQL · MongoDB · SQLite · HikariCP · stored procedures</dd>
+      <dt>Front</dt><dd>React · TypeScript · MUI · Tailwind CSS · Vite · Socket.io · Recharts</dd>
+      <dt>Infra y flujo</dt><dd>Git (ramas, worktrees) · GitHub · Railway · Vercel · Docker · Postman</dd>
+      <dt>Idiomas</dt><dd>Español nativo · Inglés avanzado (Traductor de Inglés)</dd>
+      <dt>Modalidad</dt><dd>Disponible para trabajo remoto (local e internacional) y presencial</dd>
+    </dl>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec__label"><span>07</span>Cómo trabajo</h2>
+    <div class="ways">
+      <p><b>Me hago cargo.</b> Sigo de cerca lo que entrego: del reporte de un fallo en producción al fix de la causa raíz en menos de 24 h.</p>
+      <p><b>Mido.</b> Cada número de este CV sale de una medición; cuando algo todavía no está en producción, lo digo.</p>
+      <p><b>Cuido los datos.</b> Solo lectura cuando alcanza, datos personales enmascarados y credenciales fuera del repositorio.</p>
+      <p><b>Documento.</b> Guías para el equipo, manuales para operadores y documentación técnica: lo que no se entiende, no se mantiene.</p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* CV — misma identidad que el portfolio, adaptada a impresión A4 (fondo claro). */
+@page { size: A4; margin: 13mm 14mm 15mm; }
+
+:root {
+  --ink: #111110;
+  --ink-2: #3a3935;
+  --mute: #6d6a62;
+  --line: #e2dfd6;
+  --signal: #d9461a;      /* naranja de señal, más oscuro para leerse sobre blanco */
+  --signal-soft: #fbe7de;
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans: 'Geist', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'Geist Mono', Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--sans); font-size: 8.9pt; line-height: 1.45; color: var(--ink); background: #fff; font-weight: 380; }
+a { color: inherit; text-decoration: none; }
+b, strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+/* vista en pantalla: simula la hoja */
+@media screen {
+  body { background: #e9e7e0; padding: 24px 0; }
+  .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 13mm 14mm 15mm; background: #fff; box-shadow: 0 10px 40px rgba(0, 0, 0, .12); }
+}
+
+/* ── Encabezado ── */
+.head { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: end; padding-bottom: 5mm; border-bottom: 1.4pt solid var(--ink); }
+.head__name { font-family: var(--serif); font-weight: 400; font-size: 40pt; line-height: .86; letter-spacing: -0.02em; }
+.head__name em { color: var(--signal); }
+.head__role { margin-top: 3.2mm; font-family: var(--mono); font-size: 7.6pt; letter-spacing: .07em; text-transform: uppercase; color: var(--signal); }
+.head__photo { width: 27mm; height: 31mm; border-radius: 3mm; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) contrast(1.05); }
+.contact { display: flex; flex-wrap: wrap; gap: 1mm 4.5mm; margin-top: 3mm; font-family: var(--mono); font-size: 7.3pt; color: var(--ink-2); }
+.contact span::before { content: '·'; color: var(--signal); margin-right: 4.5mm; }
+.contact span:first-child::before { content: none; }
+
+/* ── Secciones: etiqueta en el margen izquierdo, contenido a la derecha ── */
+.sec { display: grid; grid-template-columns: 27mm 1fr; gap: 4mm; padding: 3.6mm 0; border-bottom: .6pt solid var(--line); }
+.sec:last-child { border-bottom: 0; }
+.sec__label { font-family: var(--mono); font-size: 7pt; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); padding-top: .6mm; }
+.sec__label span { display: block; color: var(--mute); margin-bottom: .8mm; }
+.lead { font-size: 9.4pt; line-height: 1.5; color: var(--ink); }
+.lead + .lead { margin-top: 1.6mm; color: var(--ink-2); font-size: 8.9pt; }
+
+/* ── Entradas (experiencia, proyectos, formación) ── */
+.entry { break-inside: avoid; }
+.entry + .entry { margin-top: 3.2mm; padding-top: 3.2mm; border-top: .6pt dashed var(--line); }
+.entry__top { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.entry__title { font-family: var(--serif); font-weight: 400; font-size: 14pt; line-height: 1.05; letter-spacing: -0.01em; }
+.entry__title small { font-family: var(--sans); font-size: 8.6pt; color: var(--ink-2); letter-spacing: 0; margin-left: 1.5mm; }
+.entry__date { flex-shrink: 0; font-family: var(--mono); font-size: 7.3pt; color: var(--mute); }
+.entry__meta { margin-top: .8mm; font-size: 8.3pt; color: var(--ink-2); }
+.entry__meta a { font-family: var(--mono); font-size: 7.2pt; color: var(--signal); }
+.entry__ctx { margin-top: 1.2mm; color: var(--ink-2); }
+
+ul.bul { list-style: none; margin-top: 1.6mm; display: grid; gap: 1.05mm; }
+ul.bul li { position: relative; padding-left: 3.6mm; }
+ul.bul li::before { content: ''; position: absolute; left: 0; top: .62em; width: 2mm; height: .8pt; background: var(--signal); }
+.metric { color: var(--signal); font-weight: 600; white-space: nowrap; }
+.sub { margin-top: 2.2mm; font-family: var(--mono); font-size: 6.9pt; letter-spacing: .07em; text-transform: uppercase; color: var(--mute); }
+
+.stack { margin-top: 1.6mm; font-family: var(--mono); font-size: 7pt; color: var(--mute); }
+.stack b { font-weight: 500; color: var(--ink-2); }
+
+/* proyectos en dos columnas compactas */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3.2mm 6mm; }
+.grid2 .entry + .entry { margin-top: 0; padding-top: 0; border-top: 0; }
+.card { break-inside: avoid; padding-top: 2.6mm; border-top: .6pt dashed var(--line); }
+.grid2 .card:nth-child(-n + 2) { border-top: 0; padding-top: 0; }
+.card .entry__title { font-size: 12.5pt; }
+
+/* listas de habilidades / certificaciones */
+.kv { display: grid; grid-template-columns: 26mm 1fr; gap: 1.1mm 3mm; }
+.kv dt { font-family: var(--mono); font-size: 7pt; text-transform: uppercase; letter-spacing: .06em; color: var(--mute); padding-top: .4mm; }
+.kv dd { color: var(--ink); }
+.certs { display: grid; grid-template-columns: 1fr 1fr; gap: .9mm 6mm; margin-top: 1.4mm; }
+.certs li { list-style: none; position: relative; padding-left: 3.6mm; }
+.certs li::before { content: ''; position: absolute; left: 0; top: .5em; width: 1.4mm; height: 1.4mm; border-radius: 50%; background: var(--signal); }
+.verify { font-family: var(--mono); font-size: 7pt; color: var(--signal); }
+
+.page-break { break-before: page; }
+.entry__meta a { white-space: nowrap; }
+.contact + .contact { margin-top: .8mm; }
+.ways { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 6mm; color: var(--ink-2); }
+.ways b { color: var(--ink); }
+.sec { padding: 3.1mm 0; }
