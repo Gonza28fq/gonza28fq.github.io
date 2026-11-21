@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Gonzalo Iván Pedraza — CV</title>
   <meta name="author" content="Gonzalo Iván Pedraza">
-  <meta name="description" content="Desarrollador de software · Backend e IA aplicada · Traductor de inglés">
+  <meta name="description" content="Backend Java · AI Engineer · Traductor de inglés">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cv.css">
 </head>
@@ -14,7 +14,7 @@
   <header class="head">
     <div>
       <h1 class="head__name">Gonzalo Iván<br><em>Pedraza.</em></h1>
-      <p class="head__role">Desarrollador de software · Backend e IA aplicada · Traductor de inglés</p>
+      <p class="head__role">Backend Java · AI Engineer · Traductor de inglés</p>
       <p class="contact">
         <span>San Miguel de Tucumán, Argentina</span>
         <span><a href="mailto:gonza280797@hotmail.com">gonza280797@hotmail.com</a></span>
@@ -32,15 +32,15 @@
   <section class="sec">
     <h2 class="sec__label"><span>01</span>Perfil</h2>
     <div>
-      <p class="lead">Desarrollador backend con foco en IA aplicada. En Arch-t construyo en Java 17 servicios para una plataforma de workflow de créditos multiempresa; este año llevé un asistente de diagnóstico de un pipeline de una sola llamada a un <b>agente con 16 herramientas de solo lectura</b> y bajé su costo por consulta un <span class="metric">94%</span>.</p>
-      <p class="lead">Fuera del trabajo diseño, entrego y mantengo sistemas para negocios reales: una hamburguesería, una nutricionista, una concesionaria y comercios que cobran con Mercado Pago. Me importa entender el problema antes que el código, medir antes de afirmar y hacerme cargo de lo que entrego. Como traductor, convierto lo técnico en lenguaje de negocio.</p>
+      <p class="lead">Desarrollador backend Java con foco en IA aplicada. En Arch-t construyo servicios en Java 17 para una plataforma de workflow de créditos multiempresa: integraciones con ARCA y BCRA, firma electrónica, mensajería y un <b>agente de diagnóstico con 16 herramientas de solo lectura</b> que, en test, bajó un <span class="metric">94%</span> el costo por consulta. Por mi cuenta publiqué un <b>servidor MCP open source</b> con datos públicos de Argentina. Busco un rol remoto como <b>backend Java o AI engineer</b>, construyendo soluciones reales.</p>
+      <p class="lead">Fuera del trabajo entrego y mantengo sistemas para negocios reales. Me importa entender el problema antes que el código, medir antes de afirmar y decir qué está en producción y qué no. Como traductor, convierto lo técnico en lenguaje de negocio.</p>
     </div>
   </section>
 
   <section class="sec">
     <h2 class="sec__label"><span>02</span>Experiencia</h2>
     <div>
-      <article class="entry">
+      <article class="entry entry--split">
         <div class="entry__top">
           <h3 class="entry__title">Arch-t <small>Desarrollador backend Java</small></h3>
           <span class="entry__date">2026 — actualidad</span>
@@ -50,15 +50,17 @@
         <p class="sub">IA aplicada · de pipeline a agente</p>
         <ul class="bul">
           <li>Diseñé y evolucioné un asistente que explica en lenguaje de negocio por qué falló un trámite, quién debe actuar y qué hacer. Pasó de catálogos + una llamada al modelo a un <b>agente con function calling y 16 herramientas de solo lectura</b>, con control por empresa, lista blanca de tablas, enmascarado de datos personales y topes de vueltas.</li>
-          <li>Bajé el costo por consulta un <span class="metric">94%</span> y el tiempo de respuesta un <span class="metric">42%</span> con caché incremental, compactación de salidas y elección de modelo por costo. Lo validé con una evaluación de respuesta conocida (errores reales y fallas inyectadas a propósito).</li>
+          <li>Bajé el costo por consulta un <span class="metric">94%</span> y el tiempo de respuesta un <span class="metric">42%</span> con caché incremental, compactación de salidas y elección de modelo por costo. Validado en test con una evaluación de respuesta conocida (errores reales y fallas inyectadas); aún sin uso en producción.</li>
           <li>Reescribí el motor de reglas del workflow y lo medí contra 361 trámites reales: <span class="metric">−81%</span> de falsos positivos. Agregué una memoria compartida por trámite con bloqueo optimista y un contexto de tamaño fijo, así el costo por pregunta no crece con la conversación.</li>
         </ul>
 
         <p class="sub">Backend, integraciones y producción</p>
         <ul class="bul">
-          <li>API de facturación electrónica por lotes contra ARCA (SOAP, conciliación automática, idempotencia): un volumen real de comprobantes pasó de ~29 minutos a 85 segundos (<span class="metric">−95%</span>), con <span class="metric">−92%</span> de consultas a la base por lote.</li>
+          <li><b>En producción:</b> cuando Meta empezó a cobrar los mensajes, pasé el menú de WhatsApp a una web de autogestión (yo hice el backend). En las primeras horas bajó de 9,1 a 2,7 mensajes por consulta (<span class="metric">−70%</span>), con 92% de los usuarios usando el link.</li>
+          <li>API de facturación electrónica por lotes contra ARCA (SOAP, conciliación automática, idempotencia): un volumen real de comprobantes pasó de ~29 minutos a 85 segundos (<span class="metric">−95%</span>), con <span class="metric">−92%</span> de consultas a la base por lote. Probada contra la homologación de ARCA.</li>
           <li>Diagnostiqué y corregí en <span class="metric">menos de 24 h</span> una condición de carrera en producción que marcaba como firmados contratos sin firmar, cubriendo los tres puntos de entrada afectados.</li>
-          <li>Proceso omnicanal (web + WhatsApp + firma electrónica) para una tarjeta provincial: 120 tareas en 7 procesos, motor de reglas configurable por datos y pantallas React genéricas que luego se reutilizaron en otro cliente.</li>
+          <li>Control de errores unificado en el motor de trámites (en desarrollo): 19 de 23 trámites “rechazados” eran en realidad fallas de servicios; ahora cada falla queda registrada y el operador ve un mensaje claro.</li>
+          <li>Proceso omnicanal (web + WhatsApp + firma electrónica) para una tarjeta provincial: 120 tareas en 7 procesos, motor de reglas configurable por datos y pantallas React genéricas que luego se reutilizaron en otro cliente. Integrado en la release.</li>
           <li>Herramienta para exportar, importar y revertir la configuración completa de una empresa entre servidores, con una foto de auditoría de 33 tablas.</li>
           <li>Migración de ~45 endpoints a una arquitectura en capas y de 3 servicios satélite a Java 17 con HikariCP (400/400 consultas concurrentes sin errores). Integraciones con la Central de Deudores del BCRA y validación de CBU.</li>
           <li>Subagente revisor de código para Claude Code con permisos de solo lectura y manual de reglas versionado: <span class="metric">−14%</span> de tokens y <span class="metric">−20%</span> de tiempo en el piloto.</li>
@@ -71,6 +73,15 @@
   <section class="sec">
     <h2 class="sec__label"><span>03</span>Proyectos</h2>
     <div class="grid2">
+      <article class="card card--full">
+        <div class="entry__top"><h3 class="entry__title">mcp-datos-argentina</h3><span class="entry__date">2026</span></div>
+        <p class="entry__meta">Servidor MCP open source · <a href="https://www.npmjs.com/package/mcp-datos-argentina">npmjs.com/package/mcp-datos-argentina</a> · <a href="https://github.com/Gonza28fq/mcp-datos-argentina">github.com/Gonza28fq/mcp-datos-argentina</a></p>
+        <ul class="bul">
+          <li>Le da a Claude (o a cualquier cliente MCP) datos públicos de Argentina: dólar, BCRA y Central de Deudores, inflación, riesgo país, plazos fijos, Georef y series del INDEC. 20 tools con salida estructurada, 4 prompts y 5 resources.</li>
+          <li>Transporte stdio y Streamable HTTP, Docker, caché por fuente y tests. Publicado en npm y en el registro oficial de MCP, con releases automáticos por GitHub Actions (Trusted Publishing).</li>
+        </ul>
+        <p class="stack">TypeScript · MCP SDK · Node.js · Zod · Vitest · Docker · GitHub Actions</p>
+      </article>
       <article class="card">
         <div class="entry__top"><h3 class="entry__title">TurnoLex</h3><span class="entry__date">2025 — 2026</span></div>
         <p class="entry__meta">SaaS multi-tenant de turnos para estudios jurídicos · <a href="https://turnolex.vercel.app">turnolex.vercel.app</a></p>
@@ -89,24 +100,7 @@
         </ul>
         <p class="stack">React 18 · Node.js · PostgreSQL · Socket.io</p>
       </article>
-      <article class="card">
-        <div class="entry__top"><h3 class="entry__title">NutriApp</h3><span class="entry__date">2026</span></div>
-        <p class="entry__meta">Panel y sitio público para una nutricionista · <a href="https://nutriapp-bay.vercel.app">nutriapp-bay.vercel.app</a></p>
-        <ul class="bul">
-          <li>Pacientes, turnos multi-sede, antropometría y planes semanales con macros en PDF/Excel.</li>
-          <li>Rate limiting, Helmet, validación con Zod y express-validator; 6 temas configurables.</li>
-        </ul>
-        <p class="stack">React · TypeScript · Node.js · MySQL · Recharts</p>
-      </article>
-      <article class="card">
-        <div class="entry__top"><h3 class="entry__title">Automatizaciones de cobros</h3><span class="entry__date">2026</span></div>
-        <p class="entry__meta">Dos bots entregados a comercios · <a href="https://github.com/Gonza28fq">github.com/Gonza28fq</a></p>
-        <ul class="bul">
-          <li>WhatsApp + Twilio: confirma en segundos si una transferencia impactó en Mercado Pago, con lenguaje natural y solo lectura.</li>
-          <li>Telegram: alertas multi-sucursal de Mercado Pago (webhook firmado) y Brubank (MacroDroid), con roles y reportes.</li>
-        </ul>
-        <p class="stack">Python · FastAPI · Twilio · Telegram · Mercado Pago</p>
-      </article>
+      <p class="card card--full more"><b>También:</b> NutriApp, panel y sitio para una nutricionista (React · Node · MySQL · <a href="https://nutriapp-bay.vercel.app">nutriapp-bay.vercel.app</a>) y dos bots de cobros entregados a comercios: WhatsApp + Twilio y Telegram, con Mercado Pago y Brubank (Python · FastAPI).</p>
     </div>
   </section>
 
@@ -138,7 +132,6 @@
         <li>AI Fluency: Framework &amp; Foundations</li>
         <li>Claude 101</li>
       </ul>
-      <p style="margin-top:1.6mm"><b>freeCodeCamp</b> — JavaScript Algorithms and Data Structures (2025)</p>
     </div>
   </section>
 
@@ -151,19 +144,10 @@
       <dt>Front</dt><dd>React · TypeScript · MUI · Tailwind CSS · Vite · Socket.io · Recharts</dd>
       <dt>Infra y flujo</dt><dd>Git (ramas, worktrees) · GitHub · Railway · Vercel · Docker · Postman</dd>
       <dt>Idiomas</dt><dd>Español nativo · Inglés avanzado (Traductor de Inglés)</dd>
-      <dt>Modalidad</dt><dd>Disponible para trabajo remoto (local e internacional) y presencial</dd>
+      <dt>Busco</dt><dd>Rol remoto (Argentina o exterior) como backend Java o AI engineer</dd>
     </dl>
   </section>
 
-  <section class="sec">
-    <h2 class="sec__label"><span>07</span>Cómo trabajo</h2>
-    <div class="ways">
-      <p><b>Me hago cargo.</b> Sigo de cerca lo que entrego: del reporte de un fallo en producción al fix de la causa raíz en menos de 24 h.</p>
-      <p><b>Mido.</b> Cada número de este CV sale de una medición; cuando algo todavía no está en producción, lo digo.</p>
-      <p><b>Cuido los datos.</b> Solo lectura cuando alcanza, datos personales enmascarados y credenciales fuera del repositorio.</p>
-      <p><b>Documento.</b> Guías para el equipo, manuales para operadores y documentación técnica: lo que no se entiende, no se mantiene.</p>
-    </div>
-  </section>
 
 </main>
 </body>

@@ -37,7 +37,7 @@ em { font-style: italic; }
 .contact span:first-child::before { content: none; }
 
 /* ── Secciones: etiqueta en el margen izquierdo, contenido a la derecha ── */
-.sec { display: grid; grid-template-columns: 27mm 1fr; gap: 4mm; padding: 3.6mm 0; border-bottom: .6pt solid var(--line); }
+.sec { display: grid; grid-template-columns: 27mm 1fr; gap: 4mm; padding: 3.1mm 0; border-bottom: .6pt solid var(--line); }
 .sec:last-child { border-bottom: 0; }
 .sec__label { font-family: var(--mono); font-size: 7pt; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); padding-top: .6mm; }
 .sec__label span { display: block; color: var(--mute); margin-bottom: .8mm; }
@@ -46,6 +46,9 @@ em { font-style: italic; }
 
 /* ── Entradas (experiencia, proyectos, formación) ── */
 .entry { break-inside: avoid; }
+.entry--split { break-inside: auto; }
+ul.bul li, .sub { break-inside: avoid; break-after: auto; }
+.sub { break-after: avoid; }
 .entry + .entry { margin-top: 3.2mm; padding-top: 3.2mm; border-top: .6pt dashed var(--line); }
 .entry__top { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
 .entry__title { font-family: var(--serif); font-weight: 400; font-size: 14pt; line-height: 1.05; letter-spacing: -0.01em; }
@@ -70,6 +73,10 @@ ul.bul li::before { content: ''; position: absolute; left: 0; top: .62em; width:
 .card { break-inside: avoid; padding-top: 2.6mm; border-top: .6pt dashed var(--line); }
 .grid2 .card:nth-child(-n + 2) { border-top: 0; padding-top: 0; }
 .card .entry__title { font-size: 12.5pt; }
+.grid2 .card--full { grid-column: 1 / -1; }
+.grid2 .more { color: var(--ink-2); }
+.grid2 .more a { font-family: var(--mono); font-size: 7.2pt; color: var(--signal); }
+.grid2 .card--full + .card, .grid2 .card--full + .card + .card { border-top: .6pt dashed var(--line); padding-top: 2.6mm; }
 
 /* listas de habilidades / certificaciones */
 .kv { display: grid; grid-template-columns: 26mm 1fr; gap: 1.1mm 3mm; }
