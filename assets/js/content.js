@@ -331,20 +331,6 @@ export const FEATURED = [
     accent: '#74acdf',
   },
   {
-    repo: 'turnolex',
-    name: 'Turno<b>Lex</b>',
-    year: '2025 — 2026',
-    kind: { es: 'Producto propio · SaaS', en: 'Own product · SaaS' },
-    img: 'assets/img/projects/turnolex.jpg',
-    live: 'https://turnolex.vercel.app',
-    desc: {
-      es: 'SaaS multi-tenant de turnos para estudios jurídicos argentinos. Datos aislados por estudio, tres roles con guards de navegación, calendario interactivo, comprobantes en PDF y emails transaccionales.',
-      en: 'Multi-tenant appointment SaaS for Argentine law firms. Per-firm data isolation, three roles with navigation guards, interactive calendar, PDF receipts and transactional emails.',
-    },
-    stack: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'JWT', 'Railway', 'Vercel'],
-    accent: '#d97706',
-  },
-  {
     repo: 'LaPinta',
     name: 'La Pinta',
     year: '2026',
@@ -366,10 +352,10 @@ export const FEATURED = [
     img: 'assets/img/projects/nutriapp.jpg',
     live: 'https://nutriapp-bay.vercel.app',
     desc: {
-      es: 'Panel para la nutricionista y su sitio público en una sola plataforma: pacientes, turnos multi-sede, consultas con antropometría, planes semanales con macros, PDF/Excel, estadísticas y blog editable.',
-      en: 'The nutritionist’s dashboard and public site in one platform: patients, multi-location appointments, anthropometric consultations, weekly meal plans with macros, PDF/Excel, statistics and an editable blog.',
+      es: 'Panel clínico para una nutricionista: pacientes con historia clínica, patologías y anamnesis, turnos multi-sede, consultas con antropometría y evolución en gráficos, planes semanales con macros en PDF/Excel, estadísticas y auditoría de cambios.',
+      en: 'Clinical dashboard for a nutritionist: patients with medical history, conditions and dietary history, multi-location appointments, anthropometric consultations with progress charts, weekly meal plans with macros in PDF/Excel, statistics and a change audit log.',
     },
-    stack: ['React 18', 'TypeScript', 'Node.js', 'MySQL', 'Zod', 'Recharts'],
+    stack: ['React 18', 'TypeScript', 'Node.js', 'PostgreSQL', 'Zod', 'Recharts'],
     accent: '#7bbf5a',
   },
 ];
@@ -448,6 +434,7 @@ export const AUTOMATIONS = [
 ];
 
 export const OTHERS = [
+  { name: { es: 'TurnoLex', en: 'TurnoLex' }, year: '2025 — 2026', what: { es: 'SaaS multi-tenant de turnos para estudios jurídicos (demo fuera de línea)', en: 'Multi-tenant appointment SaaS for law firms (demo offline)' }, stack: 'React · TS · Node · MongoDB', href: 'https://github.com/Gonza28fq/turnolex' },
   { name: { es: 'Gestor de tareas', en: 'Task manager' }, year: '2026', what: { es: 'Full stack con JWT, subtareas, vencimientos y drag & drop', en: 'Full stack with JWT, subtasks, deadlines and drag & drop' }, stack: 'React · TS · MongoDB', href: 'https://github.com/Gonza28fq/gestor-de-tareas', doc: 'Documentacion_Tecnica_GestorTareas.pdf' },
   { name: { es: 'Sistema para concesionaria', en: 'Car dealership system' }, year: '2026', what: { es: 'Stock con fotos, ajuste masivo de precios y audit log', en: 'Inventory with photos, bulk pricing and audit log' }, stack: 'React · Node · PostgreSQL', href: 'https://github.com/Gonza28fq/ConcesionarIaIba-ez' },
   { name: { es: 'Sistema de gestión comercial', en: 'Commercial management system' }, year: '2024', what: { es: 'Tesis: 7 módulos, roles y permisos, 240 páginas de documentación', en: 'Thesis: 7 modules, roles and permissions, 240 pages of docs' }, stack: 'PHP · JS · MySQL', href: 'https://github.com/Gonza28fq/commercial-management-system', doc: 'Documentacion_Tecnica.pdf' },
