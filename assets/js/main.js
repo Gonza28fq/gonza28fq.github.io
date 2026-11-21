@@ -20,6 +20,9 @@ const ES = {
   'work.less': 'Cerrar',
   'projects.live': 'Ver en vivo',
   'projects.pushed': 'último push',
+  'projects.shots': 'Pantallas',
+  'projects.zoom': 'Ampliar pantalla',
+  'projects.note': 'Capturas en local con datos inventados.',
   'certs.verify': 'Verificar',
   'certs.qr': 'Ver QR de validación',
   'contact.copied': 'Copiado',
@@ -80,12 +83,19 @@ function renderWork() {
 function renderProjects() {
   $('.featured').innerHTML = FEATURED.map((p) => `
     <article class="proj reveal" style="--accent:${p.accent}">
+      <div class="proj__visual">
       <a class="proj__media" href="${p.live}" target="_blank" rel="noopener" aria-label="${esc(p.name.replace(/<[^>]+>/g, ''))} — ${p.liveLabel ? p.liveLabel[lang] : t('projects.live')}">
         <div class="frame">
           <div class="frame__bar"><i></i><span>${p.live.replace(/^https:\/\/(www\.)?/, '')}</span></div>
           <img src="${p.img}" alt="" loading="lazy" width="1200" height="750">
         </div>
       </a>
+      ${p.gallery ? `<div class="shots" role="group" aria-label="${t('projects.shots')}">
+        ${p.gallery.map((g, i) => `<button class="shot${i === 0 ? ' is-on' : ''}" type="button" data-src="${g.src}" aria-pressed="${i === 0}"><img src="${g.thumb}" alt="" loading="lazy" width="360" height="225"><span>${g.label[lang]}</span></button>`).join('')}
+        <button class="shots__zoom" type="button" aria-label="${t('projects.zoom')}" title="${t('projects.zoom')}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg></button>
+      </div>
+      <p class="shots__note">${t('projects.note')}</p>` : ''}
+      </div>
       <div class="proj__body">
         <div class="proj__meta"><span class="kind">${p.kind[lang]}</span><span>${p.year}</span></div>
         <h3>${p.name}</h3>
@@ -225,10 +235,28 @@ function bindDynamic() {
 
 /* ═══════════ Lightbox y toast ═══════════ */
 const lightbox = $('.lightbox');
-function openLightbox(src) {
+function openLightbox(src, wide = false) {
+  lightbox.classList.toggle('is-shot', wide);
   $('img', lightbox).src = src;
   lightbox.hidden = false;
 }
+
+/* Galería de pantallas de cada proyecto: cambia la captura principal y la amplía */
+document.addEventListener('click', (e) => {
+  const shot = e.target.closest('.shot');
+  const zoom = e.target.closest('.shots__zoom');
+  if (!shot && !zoom) return;
+  const img = $('.frame img', e.target.closest('.proj'));
+  if (zoom) { openLightbox(img.src, true); return; }
+  if (shot.classList.contains('is-on')) return;
+  $$('.shot', shot.parentElement).forEach((b) => { b.classList.toggle('is-on', b === shot); b.setAttribute('aria-pressed', b === shot); });
+  img.classList.add('is-swap');
+  setTimeout(() => {
+    img.onload = () => img.classList.remove('is-swap');
+    img.src = shot.dataset.src;
+    if (img.complete) img.classList.remove('is-swap');
+  }, 220);
+});
 lightbox.addEventListener('click', () => { lightbox.hidden = true; });
 
 let toastTimer;

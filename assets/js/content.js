@@ -64,6 +64,9 @@ export const EN = {
   'auto.features': 'What it does',
   'projects.live': 'View live',
   'projects.pushed': 'last push',
+  'projects.shots': 'Screens',
+  'projects.zoom': 'Enlarge screen',
+  'projects.note': 'Captured locally with made-up data.',
 
   'certs.index': '05 — Certifications',
   'certs.title': 'Learning, <em>verified</em>',
@@ -342,6 +345,12 @@ export const FEATURED = [
       en: 'The bar’s operating system: waiter → cashier → kitchen and bar in real time with Socket.io, drag & drop floor plan, six roles, printable receipts and metrics per operating day (7 PM to 5 AM).',
     },
     stack: ['React 18', 'Node.js', 'PostgreSQL', 'Socket.io', 'JWT'],
+    gallery: [
+      { src: 'assets/img/projects/lapinta.jpg', thumb: 'assets/img/projects/gallery/lapinta-mesas-thumb.jpg', label: { es: 'Plano de mesas', en: 'Floor plan' } },
+      { src: 'assets/img/projects/gallery/lapinta-dashboard.jpg', thumb: 'assets/img/projects/gallery/lapinta-dashboard-thumb.jpg', label: { es: 'Dashboard', en: 'Dashboard' } },
+      { src: 'assets/img/projects/gallery/lapinta-caja.jpg', thumb: 'assets/img/projects/gallery/lapinta-caja-thumb.jpg', label: { es: 'Caja', en: 'Cashier' } },
+      { src: 'assets/img/projects/gallery/lapinta-metricas.jpg', thumb: 'assets/img/projects/gallery/lapinta-metricas-thumb.jpg', label: { es: 'Métricas', en: 'Metrics' } },
+    ],
     accent: '#c9a465',
   },
   {
@@ -356,6 +365,12 @@ export const FEATURED = [
       en: 'Clinical dashboard for a nutritionist: patients with medical history, conditions and dietary history, multi-location appointments, anthropometric consultations with progress charts, weekly meal plans with macros in PDF/Excel, statistics and a change audit log.',
     },
     stack: ['React 18', 'TypeScript', 'Node.js', 'PostgreSQL', 'Zod', 'Recharts'],
+    gallery: [
+      { src: 'assets/img/projects/nutriapp.jpg', thumb: 'assets/img/projects/gallery/nutriapp-dashboard-thumb.jpg', label: { es: 'Inicio', en: 'Home' } },
+      { src: 'assets/img/projects/gallery/nutriapp-progreso.jpg', thumb: 'assets/img/projects/gallery/nutriapp-progreso-thumb.jpg', label: { es: 'Progreso', en: 'Progress' } },
+      { src: 'assets/img/projects/gallery/nutriapp-estadisticas.jpg', thumb: 'assets/img/projects/gallery/nutriapp-estadisticas-thumb.jpg', label: { es: 'Estadísticas', en: 'Statistics' } },
+      { src: 'assets/img/projects/gallery/nutriapp-turnos.jpg', thumb: 'assets/img/projects/gallery/nutriapp-turnos-thumb.jpg', label: { es: 'Turnos', en: 'Appointments' } },
+    ],
     accent: '#7bbf5a',
   },
 ];
