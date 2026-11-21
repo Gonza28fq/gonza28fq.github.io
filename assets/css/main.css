@@ -332,6 +332,13 @@ html[lang='en'] .lang::before { transform: translateX(100%); }
 .card--wide { grid-column: span 2; }
 .card--tall { grid-row: span 2; }
 .card__area { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); }
+.card__area { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .6rem; }
+.card__status { display: inline-flex; align-items: center; gap: .4em; padding: .15em .6em; border: 1px solid var(--line-2); border-radius: 999px; font-size: .62rem; letter-spacing: .04em; text-transform: none; color: var(--mute); }
+.card__status::before { content: ""; width: .5em; height: .5em; border-radius: 50%; background: currentColor; }
+.card__status--prod { color: #7bbf5a; border-color: rgba(123, 191, 90, .35); }
+.card__status--test { color: #d9b44a; border-color: rgba(217, 180, 74, .35); }
+.card__status--wip, .card__status--pilot { color: var(--mute); }
+.work__note { margin: 0 0 1rem; font-size: .85rem; color: var(--mute); }
 .card h4 { font-size: 1.22rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; max-width: 30ch; }
 .card__metric { margin-top: auto; display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; }
 .card__metric b { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 4.6vw, 4.2rem); line-height: .9; letter-spacing: -0.04em; }

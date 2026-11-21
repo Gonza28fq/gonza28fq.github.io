@@ -65,7 +65,7 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 function renderWork() {
   $('.work__grid').innerHTML = WORK.map((w, i) => `
     <article class="card reveal${w.size ? ` card--${w.size}` : ''}" style="transition-delay:${(i % 3) * 70}ms">
-      <p class="card__area">${w.area[lang]}</p>
+      <p class="card__area">${w.area[lang]}${w.status ? `<span class="card__status card__status--${w.status.kind}">${w.status[lang]}</span>` : ''}</p>
       <h4>${w.title[lang]}</h4>
       <p class="card__sum">${w.summary[lang]}</p>
       <div class="card__metric"><b>${w.metric}</b><span>${w.metricLabel[lang]}</span></div>
@@ -80,9 +80,9 @@ function renderWork() {
 function renderProjects() {
   $('.featured').innerHTML = FEATURED.map((p) => `
     <article class="proj reveal" style="--accent:${p.accent}">
-      <a class="proj__media" href="${p.live}" target="_blank" rel="noopener" aria-label="${esc(p.name.replace(/<[^>]+>/g, ''))} — ${t('projects.live')}">
+      <a class="proj__media" href="${p.live}" target="_blank" rel="noopener" aria-label="${esc(p.name.replace(/<[^>]+>/g, ''))} — ${p.liveLabel ? p.liveLabel[lang] : t('projects.live')}">
         <div class="frame">
-          <div class="frame__bar"><i></i><span>${p.live.replace('https://', '')}</span></div>
+          <div class="frame__bar"><i></i><span>${p.live.replace(/^https:\/\/(www\.)?/, '')}</span></div>
           <img src="${p.img}" alt="" loading="lazy" width="1200" height="750">
         </div>
       </a>
@@ -92,7 +92,7 @@ function renderProjects() {
         <p>${p.desc[lang]}</p>
         <div class="chips">${p.stack.map((s) => `<span class="chip">${s}</span>`).join('')}</div>
         <div class="proj__links">
-          <a class="btn btn--signal" href="${p.live}" target="_blank" rel="noopener">${t('projects.live')} ↗</a>
+          <a class="btn btn--signal" href="${p.live}" target="_blank" rel="noopener">${p.liveLabel ? p.liveLabel[lang] : t('projects.live')} ↗</a>
           <a class="btn btn--ghost" href="https://github.com/${GH_USER}/${p.repo}" target="_blank" rel="noopener">GitHub</a>
         </div>
         <p class="proj__live" data-repo="${p.repo.toLowerCase()}"></p>

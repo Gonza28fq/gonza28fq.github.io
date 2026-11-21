@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" font-family="ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1218"/>
+      <stop offset="1" stop-color="#0a0d11"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".85" cy=".1" r=".7">
+      <stop offset="0" stop-color="#74acdf" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#74acdf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glow)"/>
+
+  <g font-size="22" fill="#c9d4df">
+    <text x="64" y="86"><tspan fill="#74acdf">$</tspan> claude mcp add datos-argentina -- npx -y mcp-datos-argentina</text>
+    <text x="64" y="128" fill="#7fbf7f">✓ Conectado · mcp-datos-argentina 1.0.0</text>
+    <text x="64" y="160" fill="#6b7785">  20 tools · 4 prompts · 5 resources · stdio y Streamable HTTP</text>
+  </g>
+
+  <g font-size="19" fill="#6b7785">
+    <text x="64" y="222">BCRA y mercado</text>
+    <text x="440" y="222">Inflación y calculadoras</text>
+    <text x="830" y="222">Georef y series</text>
+  </g>
+  <g font-size="19" fill="#e6ecf2">
+    <text x="64" y="262">cotizaciones_dolar</text>
+    <text x="64" y="296">cotizacion_bcra</text>
+    <text x="64" y="330">buscar_variables_bcra</text>
+    <text x="64" y="364">serie_variable_bcra</text>
+    <text x="64" y="398">consultar_deudor</text>
+    <text x="64" y="432">consultar_cheque_denunciado</text>
+    <text x="64" y="466">riesgo_pais</text>
+    <text x="64" y="500">plazos_fijos</text>
+
+    <text x="440" y="262">inflacion</text>
+    <text x="440" y="296">ajustar_por_inflacion</text>
+    <text x="440" y="330">calcular_aguinaldo</text>
+    <text x="440" y="364">cuotas_vs_contado</text>
+    <text x="440" y="398">simular_credito_uva</text>
+    <text x="440" y="432">feriados</text>
+
+    <text x="830" y="262">normalizar_direccion</text>
+    <text x="830" y="296">normalizar_direcciones_lote</text>
+    <text x="830" y="330">buscar_lugar</text>
+    <text x="830" y="364">ubicacion_por_coordenadas</text>
+    <text x="830" y="398">buscar_series</text>
+    <text x="830" y="432">consultar_series</text>
+  </g>
+
+  <line x1="64" y1="560" x2="1136" y2="560" stroke="#1f2a35" stroke-width="2"/>
+  <g font-size="22">
+    <text x="64" y="614" fill="#74acdf">&gt;</text>
+    <text x="92" y="614" fill="#c9d4df">"¿Me conviene pagar $900.000 de contado o 12 cuotas de $85.000?"</text>
+    <text x="64" y="662" fill="#6b7785">  → cuotas_vs_contado · inflacion</text>
+  </g>
+  <g font-size="16" fill="#4c5866">
+    <text x="64" y="712">npm · MCP Registry · MIT · sin tokens ni registro</text>
+  </g>
+</svg>

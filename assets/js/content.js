@@ -8,10 +8,11 @@ export const EN = {
   'nav.work': 'Experience',
   'nav.projects': 'Projects',
   'nav.certs': 'Certifications',
+  'nav.stack': 'Stack',
   'nav.contact': 'Contact',
   'nav.cmd': 'Menu',
 
-  'hero.status': 'Working at Arch-t · open to talk',
+  'hero.status': 'Open to remote roles · Java backend · AI engineer',
   'hero.role': 'Software developer · English translator',
   'hero.lede': 'I build software for <em>real problems</em>: I listen to the people who live them, design something that works and <em>take ownership</em> of keeping it working. Today I work across backend, data and applied AI.',
   'hero.i1': 'Understand the problem before the code',
@@ -77,7 +78,8 @@ export const EN = {
 
   'contact.index': '07 — Contact',
   'contact.title': 'Shall we <em>talk?</em>',
-  'contact.text': 'If you are building something where backend, data and AI need to work together without improvising, I would love to hear about it.',
+  'contact.text': 'I am looking for a remote role as a Java backend developer or AI engineer, building real solutions where backend, data and AI work together. If that is what you are building, I would love to hear about it.',
+  'work.statusNote': 'Each card shows its real status: what is in production, what is tested and what is still in progress.',
   'contact.copy': 'Copy email',
   'contact.copied': 'Copied',
   'contact.cvEs': 'CV in Spanish',
@@ -167,6 +169,39 @@ export const DIAGRAM = {
 export const WORK = [
   {
     size: 'wide',
+    status: { kind: 'prod', es: 'En producción', en: 'In production' },
+    area: { es: 'Costos de mensajería', en: 'Messaging costs' },
+    title: { es: 'Del menú por WhatsApp a una web de autogestión', en: 'From a WhatsApp menu to a self-service web page' },
+    metric: '−70%', metricLabel: { es: 'mensajes por consulta', en: 'messages per query' },
+    summary: {
+      es: 'Meta empezó a cobrar los mensajes de servicio y la factura de WhatsApp subió. El trámite sigue empezando por WhatsApp, pero ahora solo se envía un link y la consulta se hace en una página web.',
+      en: 'Meta started charging for service messages and the WhatsApp bill went up. The process still starts on WhatsApp, but now only a link is sent and the query happens on a web page.',
+    },
+    details: {
+      es: ['Relevamiento con datos reales: unos 9 mensajes por trámite, y el 55% era solo navegación (menú, saludo, pedido de DNI).', 'Hice el backend (la interfaz la hizo un compañero). El back es el único que habla con la entidad: la página no la llama directo.', 'Análisis de impacto antes del pase y cambio de línea como paso aparte, con vuelta atrás.', 'Primeras horas en producción: de 9,1 a 2,7 mensajes por consulta y 92% de los usuarios entró al link. Falta la medición de una semana completa.'],
+      en: ['Survey with real data: about 9 messages per case, 55% of them pure navigation (menu, greeting, ID request).', 'I built the backend (a teammate built the UI). The backend is the only component that talks to the client’s systems; the page never calls them directly.', 'Impact analysis before release, and the line switch as a separate step with rollback.', 'First hours in production: from 9.1 to 2.7 messages per query, and 92% of users opened the link. A full-week measurement is still pending.'],
+    },
+    tags: ['Java 17', 'REST', 'WhatsApp API', 'MySQL'],
+  },
+  {
+    size: '',
+    status: { kind: 'wip', es: 'En desarrollo', en: 'In progress' },
+    area: { es: 'Plataforma', en: 'Platform' },
+    title: { es: 'Errores que el operador entiende', en: 'Errors operators can understand' },
+    metric: '19 / 23', metricLabel: { es: '“rechazos” que en realidad eran fallas', en: '“rejections” that were actually failures' },
+    summary: {
+      es: 'Un único punto en el motor de trámites registra cada falla, sabe de dónde salió y muestra un mensaje claro.',
+      en: 'A single point in the workflow engine records every failure, knows where it came from and shows a clear message.',
+    },
+    details: {
+      es: ['Diagnóstico con datos reales: 1 de cada 10 tareas terminaba “bien” mientras un servicio externo fallaba adentro.', 'Tres finales declarados en el proceso (finalizado, rechazado, error) en lugar de deducirlos del nombre de la tarea.', 'Catálogo de errores con texto propio por empresa, editable por su administrador, y registro de cada falla con la respuesta del servicio.'],
+      en: ['Diagnosis with real data: 1 in 10 tasks ended “successfully” while an external service was failing inside it.', 'Three explicit outcomes in the process (completed, rejected, error) instead of inferring them from the task name.', 'Error catalog with per-tenant text editable by each tenant’s admin, and every failure logged with the service response.'],
+    },
+    tags: ['Java 17', 'React', 'TypeScript'],
+  },
+  {
+    size: 'wide',
+    status: { kind: 'test', es: 'Probado contra la homologación de ARCA', en: 'Tested against ARCA’s staging environment' },
     area: { es: 'Facturación electrónica', en: 'E-invoicing' },
     title: { es: 'API de facturación por lotes contra ARCA', en: 'Batch e-invoicing API against ARCA' },
     metric: '−95%', metricLabel: { es: 'tiempo de facturación', en: 'invoicing time' },
@@ -182,6 +217,7 @@ export const WORK = [
   },
   {
     size: '',
+    status: { kind: 'prod', es: 'Corregido en menos de 24 h', en: 'Fixed in under 24 h' },
     area: { es: 'Incidente en producción', en: 'Production incident' },
     title: { es: 'Causa raíz de un fallo en la firma electrónica', en: 'Root cause of an e-signature failure' },
     metric: '<24 h', metricLabel: { es: 'del reporte al fix', en: 'from report to fix' },
@@ -197,6 +233,7 @@ export const WORK = [
   },
   {
     size: '',
+    status: { kind: 'test', es: 'En la release · falta producción', en: 'In the release · not yet in production' },
     area: { es: 'Workflow omnicanal', en: 'Omnichannel workflow' },
     title: { es: 'Entrega de una tarjeta provincial: web + WhatsApp + firma', en: 'Provincial card delivery: web + WhatsApp + e-signature' },
     metric: '120', metricLabel: { es: 'tareas en 7 procesos', en: 'tasks across 7 processes' },
@@ -212,6 +249,7 @@ export const WORK = [
   },
   {
     size: '',
+    status: { kind: 'pilot', es: 'Piloto medido', en: 'Measured pilot' },
     area: { es: 'IA en el desarrollo', en: 'AI in development' },
     title: { es: 'Subagente revisor de código para Claude Code', en: 'Code-review subagent for Claude Code' },
     metric: '−20%', metricLabel: { es: 'tiempo · −14% tokens', en: 'time · −14% tokens' },
@@ -227,6 +265,7 @@ export const WORK = [
   },
   {
     size: '',
+    status: { kind: 'test', es: 'Probado en test · en la release', en: 'Tested · in the release' },
     area: { es: 'Plataforma', en: 'Platform' },
     title: { es: 'Exportar, importar y deshacer la configuración de una empresa', en: 'Export, import and undo a tenant’s configuration' },
     metric: '33', metricLabel: { es: 'tablas auditadas al revertir', en: 'tables audited on rollback' },
@@ -242,6 +281,7 @@ export const WORK = [
   },
   {
     size: '',
+    status: { kind: 'wip', es: 'Migración en curso', en: 'Migration in progress' },
     area: { es: 'Modernización', en: 'Modernization' },
     title: { es: 'Servicios a Java 17 y backend en capas', en: 'Services to Java 17 and a layered backend' },
     metric: '~45', metricLabel: { es: 'endpoints migrados a v2', en: 'endpoints migrated to v2' },
@@ -257,6 +297,7 @@ export const WORK = [
   },
   {
     size: 'wide',
+    status: { kind: 'wip', es: 'Probado en local', en: 'Tested locally' },
     area: { es: 'Front', en: 'Front end' },
     title: { es: 'Rediseño visual y migración de MUI 5 a 7', en: 'Visual redesign and MUI 5 → 7 migration' },
     metric: '~100', metricLabel: { es: 'archivos migrados', en: 'files migrated' },
@@ -274,6 +315,21 @@ export const WORK = [
 
 // ── Proyectos destacados ──
 export const FEATURED = [
+  {
+    repo: 'mcp-datos-argentina',
+    name: 'mcp-datos-<b>argentina</b>',
+    year: '2026',
+    kind: { es: 'Open source · servidor MCP', en: 'Open source · MCP server' },
+    img: 'assets/img/projects/mcp-datos-argentina.svg',
+    live: 'https://www.npmjs.com/package/mcp-datos-argentina',
+    liveLabel: { es: 'Ver en npm', en: 'View on npm' },
+    desc: {
+      es: 'Servidor MCP que le da a Claude (o a cualquier cliente MCP) acceso a datos públicos de Argentina: dólar, BCRA y Central de Deudores, inflación, riesgo país, plazos fijos, direcciones (Georef) y series oficiales del INDEC. 20 tools con salida estructurada, 4 prompts y 5 resources, con transporte stdio y HTTP. Está publicado en npm y en el registro oficial de MCP, con tests y releases automáticos desde GitHub Actions.',
+      en: 'MCP server that gives Claude (or any MCP client) access to Argentine public data: exchange rates, the Central Bank and its debtor registry, inflation, country risk, fixed-term deposit rates, addresses (Georef) and official INDEC time series. 20 tools with structured output, 4 prompts and 5 resources, over stdio and HTTP. Published on npm and the official MCP Registry, with tests and automated releases from GitHub Actions.',
+    },
+    stack: ['TypeScript', 'MCP SDK', 'Node.js', 'Zod', 'Vitest', 'Docker', 'GitHub Actions'],
+    accent: '#74acdf',
+  },
   {
     repo: 'turnolex',
     name: 'Turno<b>Lex</b>',
