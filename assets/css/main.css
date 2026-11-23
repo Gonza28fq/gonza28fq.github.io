@@ -770,3 +770,28 @@ html.intro-lock, html.intro-lock body { overflow: hidden; }
   .about__grid { grid-template-columns: 1fr; }
   .portrait { position: static; max-width: 420px; }
 }
+
+/* ════════ Caso en pantallas chicas: tarjetas que se deslizan ════════
+   El esquema queda arriba (no fijo) y cada paso es una tarjeta: al deslizar,
+   el esquema cambia. Antes el texto pasaba por debajo del esquema fijo y se
+   veía cortado. */
+.story__hint { display: none; margin-top: .9rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
+@media (max-width: 860px) {
+  .story { gap: 1.2rem; }
+  .story__stage { position: relative; top: auto; height: auto; display: flex; flex-direction: column; gap: .9rem; }
+  .story__stage::after { display: none; }
+  .diagram { height: min(380px, 58vh); }
+  .diagram__ring { width: min(66%, 52vh); }
+  .diagram__ring text { display: none; }
+  .story__dots { position: static; justify-content: center; gap: .6rem; }
+  .story__dots li { width: 34px; height: 24px; padding: 10px 0; background-clip: content-box; cursor: pointer; }
+  .story__dots li.is-on { width: 46px; background-clip: content-box; }
+  .story__steps {
+    flex-direction: row; gap: 1rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .story__steps::-webkit-scrollbar { display: none; }
+  .step { flex: 0 0 88%; min-height: 0; justify-content: flex-start; scroll-snap-align: start; padding-bottom: .5rem; }
+  .step h3 { font-size: 2rem; }
+  .story__hint { display: block; text-align: center; margin: -.4rem 0 0; }
+}

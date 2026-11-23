@@ -94,7 +94,7 @@ function renderProjects() {
         ${p.gallery.map((g, i) => `<button class="shot${i === 0 ? ' is-on' : ''}" type="button" data-src="${g.src}" aria-pressed="${i === 0}"><img src="${g.thumb}" alt="" loading="lazy" width="360" height="225"><span>${g.label[lang]}</span></button>`).join('')}
         <button class="shots__zoom" type="button" aria-label="${t('projects.zoom')}" title="${t('projects.zoom')}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg></button>
       </div>
-      <p class="shots__note">${t('projects.note')}</p>` : ''}
+      <p class="shots__note">${p.note ? p.note[lang] : t('projects.note')}</p>` : ''}
       </div>
       <div class="proj__body">
         <div class="proj__meta"><span class="kind">${p.kind[lang]}</span><span>${p.year}</span></div>
@@ -103,9 +103,9 @@ function renderProjects() {
         <div class="chips">${p.stack.map((s) => `<span class="chip">${s}</span>`).join('')}</div>
         <div class="proj__links">
           <a class="btn btn--signal" href="${p.live}" target="_blank" rel="noopener">${p.liveLabel ? p.liveLabel[lang] : t('projects.live')} ↗</a>
-          <a class="btn btn--ghost" href="https://github.com/${GH_USER}/${p.repo}" target="_blank" rel="noopener">GitHub</a>
+          ${p.repo ? `<a class="btn btn--ghost" href="https://github.com/${GH_USER}/${p.repo}" target="_blank" rel="noopener">GitHub</a>` : ''}
         </div>
-        <p class="proj__live" data-repo="${p.repo.toLowerCase()}"></p>
+        ${p.repo ? `<p class="proj__live" data-repo="${p.repo.toLowerCase()}"></p>` : ''}
       </div>
     </article>`).join('');
 

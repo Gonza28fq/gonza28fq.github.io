@@ -41,6 +41,7 @@ export const EN = {
   'case.index': '02 — Case study',
   'case.title': 'From pipeline <em>to agent</em>',
   'case.intro': 'When a case failed, Sales and Support only saw technical workflow-engine messages and escalated almost everything to Development. The goal: something that reads the case history and explains, in business language, what happened, why, who must act and what to do — without giving a model free access to a database full of personal data, and without cost per query running away.',
+  'case.hint': 'Swipe to see each stage →',
   'case.honest': 'Validated in a test environment with a known-answer evaluation (real errors + deliberately injected faults). There is no production usage metric yet.',
   'case.m1': 'cost per query',
   'case.m2': 'response time',
@@ -372,6 +373,28 @@ export const FEATURED = [
       { src: 'assets/img/projects/gallery/nutriapp-turnos.jpg', thumb: 'assets/img/projects/gallery/nutriapp-turnos-thumb.jpg', label: { es: 'Turnos', en: 'Appointments' } },
     ],
     accent: '#7bbf5a',
+  },
+  {
+    // Sin repo público: el código del juego no está en GitHub
+    name: 'El Tasador <b>de Praga</b>',
+    year: '2026',
+    kind: { es: 'Juego propio · aventura narrativa', en: 'Own game · narrative adventure' },
+    img: 'assets/img/projects/tasador.jpg',
+    live: 'ITCH_URL',
+    liveLabel: { es: 'Jugar la demo en itch.io', en: 'Play the demo on itch.io' },
+    desc: {
+      es: 'Aventura narrativa para PC ambientada en el universo de mi novela «Marca de Ceniza». Demo de dos capítulos en español e inglés: historia con ramas escrita en ink, tiradas de habilidad a la vista, duelos, una mesa de inspección en 3D y guardado automático. Escribí la historia y dirigí el arte; programé el juego con Claude Code, con una partida automática que recorre la demo de punta a punta y guarda una captura de cada escena para revisarla.',
+      en: 'A narrative PC adventure set in the world of my novel “Marca de Ceniza” (Ash Mark). Two-chapter demo in Spanish and English: branching story written in ink, visible skill rolls, duels, a 3D inspection table and autosave. I wrote the story and directed the art; I programmed the game with Claude Code, plus an automated playthrough that runs the whole demo and saves a capture of every scene for review.',
+    },
+    stack: ['Godot 4', 'C# / .NET 8', 'ink', 'Python', 'Claude Code'],
+    gallery: [
+      { src: 'assets/img/projects/gallery/tasador-taller.jpg', thumb: 'assets/img/projects/gallery/tasador-taller-thumb.jpg', label: { es: 'Taller', en: 'Workshop' } },
+      { src: 'assets/img/projects/gallery/tasador-mesa.jpg', thumb: 'assets/img/projects/gallery/tasador-mesa-thumb.jpg', label: { es: 'Mesa', en: 'Workbench' } },
+      { src: 'assets/img/projects/gallery/tasador-duelo.jpg', thumb: 'assets/img/projects/gallery/tasador-duelo-thumb.jpg', label: { es: 'Duelo', en: 'Duel' } },
+      { src: 'assets/img/projects/gallery/tasador-tejado.jpg', thumb: 'assets/img/projects/gallery/tasador-tejado-thumb.jpg', label: { es: 'Tejado', en: 'Rooftop' } },
+    ],
+    note: { es: 'Capturas del juego.', en: 'In-game screenshots.' },
+    accent: '#e0a458',
   },
 ];
 

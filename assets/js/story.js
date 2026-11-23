@@ -123,6 +123,10 @@ export function initStory({ getLang, reduced }) {
   }
 
   // ── Activación por scroll ──
+  // En escritorio se activa por scroll vertical (el diagrama queda fijo al costado).
+  // En pantallas chicas los pasos son tarjetas que se deslizan de costado:
+  // se activa la que está a la vista dentro del carrusel.
+  const mobile = matchMedia('(max-width: 860px)');
   let io;
   function observeSteps() {
     io?.disconnect();
@@ -130,12 +134,19 @@ export function initStory({ getLang, reduced }) {
       for (const e of entries) {
         if (e.isIntersecting && e.target.dataset.stage !== current) setStage(e.target.dataset.stage);
       }
-    }, {
-      // en mobile el diagrama ocupa la parte de arriba: se activa con la franja visible de abajo
-      rootMargin: matchMedia('(max-width: 860px)').matches ? '-62% 0px -28% 0px' : '-45% 0px -45% 0px',
-    });
+    }, mobile.matches
+      ? { root: stepsEl, threshold: 0.6 }
+      : { rootMargin: '-45% 0px -45% 0px' });
     stepsEl.querySelectorAll('.step').forEach((s) => io.observe(s));
   }
+  mobile.addEventListener('change', observeSteps);
+
+  // En mobile, las rayitas debajo del esquema llevan a cada tarjeta
+  dots.forEach((d, i) => d.addEventListener('click', () => {
+    if (!mobile.matches) return;
+    const step = stepsEl.querySelectorAll('.step')[i];
+    if (step) stepsEl.scrollTo({ left: step.offsetLeft - stepsEl.offsetLeft, behavior: reduced ? 'auto' : 'smooth' });
+  }));
 
   let resizeTimer;
   window.addEventListener('resize', () => {
